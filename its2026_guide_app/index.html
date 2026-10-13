@@ -1,0 +1,3447 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>2026 강릉 ITS 세계총회 가이드북</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Pretendard Font -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            its: {
+              primary: '#006241',    /* 강릉 ITS 시그니처 딥에메랄드 그린 */
+              accent: '#00D09E',     /* 사이버 틸 / 네온 민트 */
+              cyan: '#00E5FF',       /* 하이테크 사이언 */
+              yellow: '#FFB800',     /* 모빌리티 옐로우 */
+              red: '#FF4757',        /* 모빌리티 레드 */
+              dark: '#080E14',       /* 비디오 테마 울트라 다크 배경 */
+              card: '#111C24',       /* 다크 카드 배경 */
+              border: '#1F2E3A'
+            }
+          },
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Mobile App Shell & Smooth Scroll */
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background-color: #060A0E;
+      color: #E2E8F0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    
+    /* Custom Scrollbar hide */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Glowing Badge & Accents */
+    .glow-accent {
+      box-shadow: 0 0 15px rgba(0, 208, 158, 0.4);
+    }
+    .glow-cyan {
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.35);
+    }
+    .glass-nav {
+      background: rgba(11, 18, 26, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-header {
+      background: rgba(8, 14, 20, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* Map Zoom Container */
+    .map-container {
+      overflow: hidden;
+      touch-action: pan-x pan-y pinch-zoom;
+    }
+    .map-img {
+      transition: transform 0.25s ease-out;
+      transform-origin: center center;
+    }
+
+    /* Interactive News Accordion/Feed */
+    .news-card {
+      transition: all 0.2s ease;
+    }
+    .news-card:active {
+      transform: scale(0.985);
+    }
+  </style>
+</head>
+<body class="flex justify-center items-center min-h-screen p-0 sm:p-4 bg-slate-950">
+
+  <!-- Mobile Screen Shell (Max 430px iPhone Pro Max Standard) -->
+  <div id="app" class="relative w-full max-w-[440px] h-[100dvh] sm:h-[900px] bg-its-dark flex flex-col overflow-hidden sm:rounded-[40px] sm:border-[3px] sm:border-slate-800 shadow-2xl">
+    
+    <!-- Video Splash Screen (App Launch Video) -->
+    <div id="splashScreen" class="absolute inset-0 z-50 bg-black flex flex-col items-center justify-center transition-opacity duration-700">
+      <video id="splashVideo" class="w-full h-full object-cover" playsinline autoplay muted loop poster="poster.jpg">
+        <source src="generated_video_grok.mp4" type="video/mp4">
+        비디오를 재생할 수 없습니다.
+      </video>
+      <!-- Overlay Gradient & Slogan -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60 flex flex-col justify-between p-6">
+        <div class="flex justify-between items-center pt-8">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-its-accent animate-ping"></span>
+            <span class="text-xs font-semibold tracking-wider text-its-accent uppercase">Gangneung 2026</span>
+          </div>
+          <button id="skipSplashBtn" class="px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-medium border border-white/20 hover:bg-white/30 transition">
+            스킵 <i data-lucide="chevron-right" class="w-3.5 h-3.5 inline"></i>
+          </button>
+        </div>
+
+        <div class="space-y-4 pb-10">
+          <div class="inline-block px-3 py-1 rounded-md bg-its-primary/80 border border-its-accent/40 text-[11px] font-bold tracking-widest text-emerald-200">
+            ITS WORLD CONGRESS
+          </div>
+          <h1 class="text-3xl font-black text-white leading-tight tracking-tight">
+            Beyond Mobility,<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-its-accent via-its-cyan to-its-yellow">
+              Connected World
+            </span>
+          </h1>
+          <p class="text-sm text-slate-300 font-light">
+            이동을 넘어 하나되는 세계, 강릉에서 펼쳐지는 제32회 ITS 세계총회에 오신 것을 환영합니다.
+          </p>
+
+          <button id="enterAppBtn" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-its-primary to-emerald-600 hover:from-emerald-600 hover:to-teal-500 text-white font-bold text-sm tracking-wide shadow-lg shadow-emerald-950/60 flex items-center justify-center gap-2 transition active:scale-[0.98]">
+            <span>모바일 가이드북 시작하기</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top App Header -->
+    <header class="glass-header z-30 px-5 pt-3 pb-2.5 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-its-primary to-emerald-500 flex items-center justify-center text-white font-black text-sm shadow-md">
+          ITS
+        </div>
+        <div>
+          <h2 class="text-xs font-bold text-slate-100 flex items-center gap-1">
+            2026 강릉세계총회
+            <span class="px-1.5 py-0.2 rounded text-[9px] bg-emerald-900/60 text-emerald-300 font-mono">D-DAY GUIDE</span>
+          </h2>
+          <p class="text-[10px] text-slate-400 font-medium">Beyond Mobility, Connected World</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1.5">
+        <button id="btnReplayIntro" title="인트로 영상 다시보기" class="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 border border-slate-700/60 text-xs flex items-center gap-1">
+          <i data-lucide="play-circle" class="w-4 h-4 text-its-accent"></i>
+        </button>
+        <button id="btnSearch" class="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 border border-slate-700/60">
+          <i data-lucide="search" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Scrollable Screen Content -->
+    <main class="flex-1 overflow-y-auto no-scrollbar relative pb-20">
+
+      <!-- ============================================== -->
+      <!-- TAB 1: 프로그램 일정표 (Schedule) -->
+      <!-- ============================================== -->
+      <section id="tabSchedule" class="tab-content block p-4 space-y-4">
+        <!-- Date Selector (5 Days Carousel) -->
+        <div class="flex items-center justify-between gap-1.5 p-1 bg-slate-900/90 rounded-2xl border border-slate-800">
+          <button class="day-btn flex-1 py-2 rounded-xl text-center transition font-semibold text-xs active-day bg-its-primary text-white shadow-sm" data-day="0">
+            <span class="block text-[9px] text-emerald-200 opacity-80">한눈에</span>
+            <span>전체</span>
+          </button>
+          <button class="day-btn flex-1 py-2 rounded-xl text-center transition font-semibold text-xs text-slate-400 hover:text-white" data-day="1">
+            <span class="block text-[9px] opacity-70">10.19 월</span>
+            <span>Day 1</span>
+          </button>
+          <button class="day-btn flex-1 py-2 rounded-xl text-center transition font-semibold text-xs text-slate-400 hover:text-white" data-day="2">
+            <span class="block text-[9px] opacity-70">10.20 화</span>
+            <span>Day 2</span>
+          </button>
+          <button class="day-btn flex-1 py-2 rounded-xl text-center transition font-semibold text-xs text-slate-400 hover:text-white" data-day="3">
+            <span class="block text-[9px] opacity-70">10.21 수</span>
+            <span>Day 3</span>
+          </button>
+          <button class="day-btn flex-1 py-2 rounded-xl text-center transition font-semibold text-xs text-slate-400 hover:text-white" data-day="4">
+            <span class="block text-[9px] opacity-70">10.22 목</span>
+            <span>Day 4</span>
+          </button>
+          <button class="day-btn flex-1 py-2 rounded-xl text-center transition font-semibold text-xs text-slate-400 hover:text-white" data-day="5">
+            <span class="block text-[9px] opacity-70">10.23 금</span>
+            <span>Day 5</span>
+          </button>
+        </div>
+
+        <!-- Venue Filter Chip -->
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+          <button class="venue-filter px-3 py-1.5 rounded-full text-xs font-medium bg-emerald-500/20 text-its-accent border border-emerald-500/30 whitespace-nowrap active" data-venue="all">
+            전체 장소
+          </button>
+          <button class="venue-filter px-3 py-1.5 rounded-full text-xs font-medium bg-slate-900 text-slate-400 border border-slate-800 whitespace-nowrap" data-venue="convention">
+            강릉컨벤션센터
+          </button>
+          <button class="venue-filter px-3 py-1.5 rounded-full text-xs font-medium bg-slate-900 text-slate-400 border border-slate-800 whitespace-nowrap" data-venue="skating">
+            스피드스케이팅경기장
+          </button>
+          <button class="venue-filter px-3 py-1.5 rounded-full text-xs font-medium bg-slate-900 text-slate-400 border border-slate-800 whitespace-nowrap" data-venue="plenary">
+            전체 회의 (PL)
+          </button>
+        </div>
+
+        <!-- Dynamic Schedule List Container -->
+        <div id="scheduleTimeline" class="space-y-3">
+          <!-- Injected via JS -->
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- TAB 2: 전시배치도 & 부스 기업 디렉토리 & 최신 소식 -->
+      <!-- ============================================== -->
+      <section id="tabFloorMap" class="tab-content hidden p-4 space-y-4">
+        
+        <!-- Floor Map Interactive Navigation & Wayfinding Card -->
+        <div class="bg-its-card rounded-3xl border border-slate-800 p-4 space-y-3 shadow-xl">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="p-2 rounded-xl bg-its-primary/20 text-its-accent">
+                <i data-lucide="navigation" class="w-4 h-4"></i>
+              </span>
+              <div>
+                <h3 class="text-sm font-bold text-white">전시장 스마트 부스 길찾기</h3>
+                <p id="mapStatusText" class="text-[11px] text-slate-400">아래 리스트에서 [길찾기]를 터치하면 위치가 강조됩니다</p>
+              </div>
+            </div>
+            <button id="btnResetWayfinding" class="px-2.5 py-1 rounded-xl bg-slate-800 hover:bg-slate-700 text-[10px] text-slate-300 font-medium border border-slate-700 flex items-center gap-1">
+              <i data-lucide="rotate-ccw" class="w-3 h-3"></i> 안내 초기화
+            </button>
+          </div>
+
+          <!-- Interactive Map Viewport with Pulse Target Indicator & Route Line -->
+          <div id="mapViewport" class="relative w-full h-[220px] rounded-2xl bg-black border border-slate-700/80 overflow-hidden flex items-center justify-center">
+            <img id="floorMapImg" src="exhibition_floor_map.jpg" alt="강릉세계총회 전시배치도" class="map-img w-full h-full object-contain">
+            
+            <!-- SVG Wayfinding Path Overlay -->
+            <svg id="routeSvg" class="absolute inset-0 w-full h-full pointer-events-none" style="display:none;">
+              <path id="routePath" d="" stroke="#00E5FF" stroke-width="3" stroke-dasharray="6,4" fill="none" class="animate-pulse"></path>
+            </svg>
+
+            <!-- Entrance Marker (주출입구 1) -->
+            <div id="entranceMarker" class="absolute left-[13%] bottom-[8px] flex items-center gap-1 bg-emerald-500/90 text-black px-2 py-0.5 rounded-full text-[9px] font-bold shadow-lg pointer-events-none animate-bounce" style="display:none;">
+              <i data-lucide="log-in" class="w-2.5 h-2.5"></i> 출발: 주출입구
+            </div>
+
+            <!-- Pulsing Booth Target Highlight Box -->
+            <div id="boothHighlightBox" class="absolute pointer-events-none transition-all duration-300 -translate-x-1/2 -translate-y-1/2" style="display:none;">
+              <div class="relative flex items-center justify-center">
+                <!-- Outer Pulse Rings -->
+                <span class="absolute w-12 h-12 rounded-2xl bg-cyan-400/40 animate-ping"></span>
+                <span class="absolute w-9 h-9 rounded-xl bg-cyan-400/60 animate-pulse"></span>
+                <!-- Glowing Target Box -->
+                <div class="relative px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-400 text-black font-black text-[11px] shadow-2xl flex items-center gap-1 border-2 border-white ring-4 ring-cyan-400/50">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 fill-black"></i>
+                  <span id="highlightBoothLabel">P1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Navigation Info Bar -->
+          <div id="navigationBanner" class="p-2.5 rounded-2xl bg-gradient-to-r from-cyan-950/70 via-slate-900 to-emerald-950/70 border border-cyan-500/40 flex items-center justify-between text-xs" style="display:none;">
+            <div class="flex items-center gap-2 truncate">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              <span id="navTargetName" class="font-bold text-white truncate">선택 부스 길찾기 안내 중</span>
+            </div>
+            <span class="text-[10px] text-cyan-300 font-medium shrink-0">주출입구 기준 동선</span>
+          </div>
+
+        </div>
+
+        <!-- ============================================== -->
+        <!-- 부스 번호 & 기업 이름 리스트업 (Booth & Company Directory) -->
+        <!-- ============================================== -->
+        <div class="bg-its-card rounded-3xl border border-slate-800 p-4 space-y-3 shadow-xl">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-300">
+                <i data-lucide="list-ordered" class="w-4 h-4"></i>
+              </span>
+              <div>
+                <h3 class="text-sm font-bold text-white tracking-tight">전시 참가기업 & 부스 목록</h3>
+                <p class="text-[11px] text-slate-400">부스 번호와 기업명으로 빠르게 찾기</p>
+              </div>
+            </div>
+            <span id="boothCountBadge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-900 text-its-accent border border-emerald-900">
+              0개 부스
+            </span>
+          </div>
+
+          <!-- Booth Search & Quick Filter -->
+          <div class="relative">
+            <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+            <input type="text" id="boothSearchInput" placeholder="부스 번호(예: P1, S1) 또는 기업명 검색..." 
+                   class="w-full pl-9 pr-8 py-2 rounded-xl bg-slate-900 border border-slate-700/80 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-its-accent">
+            <button id="btnClearBoothSearch" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 text-xs">
+              ✕
+            </button>
+          </div>
+
+          <!-- Zone Pills Filter -->
+          <div class="flex gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+            <button class="booth-zone-pill px-3 py-1 rounded-full text-[11px] font-medium bg-its-primary text-white whitespace-nowrap active" data-zone="all">전체</button>
+            <button class="booth-zone-pill px-3 py-1 rounded-full text-[11px] font-medium bg-slate-900 text-slate-400 border border-slate-800 whitespace-nowrap" data-zone="Zone 1">Zone 1 (좌측)</button>
+            <button class="booth-zone-pill px-3 py-1 rounded-full text-[11px] font-medium bg-slate-900 text-slate-400 border border-slate-800 whitespace-nowrap" data-zone="Zone 2">Zone 2 (우측)</button>
+            <button class="booth-zone-pill px-3 py-1 rounded-full text-[11px] font-medium bg-slate-900 text-slate-400 border border-slate-800 whitespace-nowrap" data-zone="Premium">독립부스</button>
+          </div>
+
+          <!-- Booths Scrollable List Box (No size tag, only Booth, Name, Summary & [길찾기] button) -->
+          <div id="boothListContainer" class="max-h-[300px] overflow-y-auto no-scrollbar space-y-2 pr-1">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- 기업 최신 뉴스 피드 (ITS Korea 제공 실시간 게시판) -->
+        <!-- ============================================== -->
+        <div class="space-y-3 pt-1">
+          <div class="flex items-center justify-between px-1">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-its-cyan animate-pulse"></div>
+              <div>
+                <h3 class="text-sm font-bold text-white tracking-tight">최신 소식 & 기업동향</h3>
+                <p class="text-[10px] text-slate-400">ITS Korea 제공</p>
+              </div>
+            </div>
+            <button id="btnRefreshNews" class="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center gap-1 text-[10px]" title="최신 소식 새로고침">
+              <i data-lucide="refresh-cw" class="w-3 h-3 text-its-accent"></i>
+              <span>새로고침</span>
+            </button>
+          </div>
+
+          <!-- News Filter Tabs -->
+          <div class="flex gap-2 overflow-x-auto no-scrollbar py-0.5">
+            <button class="news-tab px-3 py-1 rounded-full text-xs font-medium bg-its-primary text-white whitespace-nowrap active" data-filter="all">전체</button>
+            <button class="news-tab px-3 py-1 rounded-full text-xs font-medium bg-slate-900 text-slate-400 border border-slate-800 whitespace-nowrap" data-filter="회원사/동향">회원사 동향</button>
+            <button class="news-tab px-3 py-1 rounded-full text-xs font-medium bg-slate-900 text-slate-400 border border-slate-800 whitespace-nowrap" data-filter="지자체">지자체 소식</button>
+            <button class="news-tab px-3 py-1 rounded-full text-xs font-medium bg-slate-900 text-slate-400 border border-slate-800 whitespace-nowrap" data-filter="보도자료">보도자료</button>
+          </div>
+
+          <!-- News Cards Stream (Board style) -->
+          <div id="companyNewsFeed" class="space-y-2.5">
+            <!-- Injected dynamically via JS with exact Date and Views from ITS Korea -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- TAB 3: 편의시설 & 현장 서비스 (Facilities) -->
+      <!-- ============================================== -->
+      <section id="tabFacilities" class="tab-content hidden p-4 space-y-4">
+        <!-- ============================================== -->
+        <!-- 1. 행사장 소개 (Venue Guide - map=37) -->
+        <!-- ============================================== -->
+        <div class="bg-gradient-to-br from-cyan-950/70 via-slate-900 to-slate-950 border border-cyan-800/40 rounded-3xl p-4 space-y-3 shadow-xl">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="p-1.5 rounded-xl bg-cyan-500/20 text-cyan-300">
+                <i data-lucide="map" class="w-4 h-4"></i>
+              </span>
+              <div>
+                <h3 class="text-sm font-bold text-white">행사장 소개 (Venue Guide)</h3>
+                <p class="text-[10px] text-slate-400">강릉 올림픽파크 일원 (K-Arena & Convention)</p>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-cyan-950 text-cyan-300 border border-cyan-800">
+              공식 행사장
+            </span>
+          </div>
+
+          <!-- 조감도 사진 & 확대 버튼 -->
+          <div class="relative rounded-2xl overflow-hidden border border-slate-800 group cursor-pointer" id="venueBirdEyeCard">
+            <img src="https://admin.o2meet-g.kr/data/editor/20260929175143f16ab5c7-a90b-4c73-b32c-f76dac78c273.png" alt="강릉 올림픽파크 전시장 조감도" class="w-full h-[155px] object-cover transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end justify-between p-3">
+              <span class="text-[11px] font-bold text-white flex items-center gap-1.5">
+                <i data-lucide="zoom-in" class="w-3.5 h-3.5 text-cyan-400"></i> 올림픽파크 전체 조감도 터치하여 크게보기
+              </span>
+              <span class="px-2 py-0.5 rounded-md bg-white/20 backdrop-blur-sm text-white text-[9px] font-medium">전체 조감도</span>
+            </div>
+          </div>
+
+          <!-- 4대 핵심 구역 퀵 그리드 (탭/버튼 클릭시 도면 및 상세 팝업) -->
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <!-- 강릉컨벤션센터 -->
+            <div class="venue-chip p-2.5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 cursor-pointer space-y-1.5 transition active:scale-95" data-venue="convention">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-cyan-300 text-[11px] flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span> 강릉컨벤션센터
+                </span>
+                <i data-lucide="external-link" class="w-3 h-3 text-slate-500"></i>
+              </div>
+              <p class="text-[10px] text-slate-400 leading-tight">개·폐회식, 장관회의, 회의실(1~12), 등록</p>
+              <div class="pt-0.5">
+                <span class="inline-block px-2 py-0.5 rounded-lg bg-cyan-950 text-cyan-300 border border-cyan-800 text-[9px] font-bold">도면 크게보기</span>
+              </div>
+            </div>
+
+            <!-- 강릉스피드스케이팅경기장 -->
+            <div class="venue-chip p-2.5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 cursor-pointer space-y-1.5 transition active:scale-95" data-venue="skating">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-emerald-300 text-[11px] flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span> 스피드스케이팅
+                </span>
+                <i data-lucide="external-link" class="w-3 h-3 text-slate-500"></i>
+              </div>
+              <p class="text-[10px] text-slate-400 leading-tight">산업전시관(108개 부스), 비즈니스 라운지, 오찬장</p>
+              <div class="pt-0.5">
+                <span class="inline-block px-2 py-0.5 rounded-lg bg-emerald-950 text-emerald-300 border border-emerald-800 text-[9px] font-bold">도면 크게보기</span>
+              </div>
+            </div>
+
+            <!-- 야외광장 -->
+            <div class="venue-chip p-2.5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-amber-500/50 cursor-pointer space-y-1.5 transition active:scale-95" data-venue="outdoor">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-amber-300 text-[11px] flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span> 야외광장
+                </span>
+                <i data-lucide="info" class="w-3 h-3 text-slate-500"></i>
+              </div>
+              <p class="text-[10px] text-slate-400 leading-tight">자율주행·드론 실증 시연(Tech Demo), 셔틀 승하차</p>
+              <div class="pt-0.5">
+                <span class="inline-block px-2 py-0.5 rounded-lg bg-amber-950/80 text-amber-300 border border-amber-800 text-[9px] font-bold">상세 안내보기</span>
+              </div>
+            </div>
+
+            <!-- 하키센터 & 환승센터 -->
+            <div class="venue-chip p-2.5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-indigo-500/50 cursor-pointer space-y-1.5 transition active:scale-95" data-venue="hockey">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-indigo-300 text-[11px] flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-indigo-400"></span> 하키센터·환승센터
+                </span>
+                <i data-lucide="info" class="w-3 h-3 text-slate-500"></i>
+              </div>
+              <p class="text-[10px] text-slate-400 leading-tight">참관객 셔틀버스 종합 환승센터, 부대 지원시설</p>
+              <div class="pt-0.5">
+                <span class="inline-block px-2 py-0.5 rounded-lg bg-indigo-950/80 text-indigo-300 border border-indigo-800 text-[9px] font-bold">상세 안내보기</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 px-1 pt-1">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <h4 class="text-xs font-bold text-white tracking-tight">현장 종합 편의 서비스 (운영 데스크 & 네트워크)</h4>
+        </div>
+
+        <!-- Facilities Quick Cards -->
+        <div class="space-y-3">
+          
+          <!-- 등록데스크 & 안내데스크 -->
+          <div class="bg-its-card rounded-2xl border border-slate-800 p-4 space-y-2.5">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-its-accent flex items-center justify-center shrink-0">
+                <i data-lucide="badge-check" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">등록데스크 & 안내데스크</h4>
+                <p class="text-[11px] text-slate-400">비표 수령 및 행사 전반 종합 안내</p>
+              </div>
+            </div>
+            <div class="bg-slate-900/80 rounded-xl p-3 text-xs space-y-1.5 text-slate-300 border border-slate-800/80">
+              <div class="flex justify-between items-start">
+                <span class="text-emerald-400 font-semibold shrink-0">컨벤션센터:</span>
+                <span class="text-right">1층 등록데스크 (10.18: 08:00~18:00 / 10.19~22: 07:30~18:00 / 10.23: 07:30~15:00)</span>
+              </div>
+              <div class="flex justify-between items-start pt-1 border-t border-slate-800">
+                <span class="text-emerald-400 font-semibold shrink-0">스피드스케이팅:</span>
+                <span class="text-right">1층 Gate 1 안내데스크 (10.19~23: 09:00~18:00)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 커피 브레이크 & 오찬 -->
+          <div class="bg-its-card rounded-2xl border border-slate-800 p-4 space-y-2.5">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                <i data-lucide="coffee" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">커피 브레이크 & 오찬 안내</h4>
+                <p class="text-[11px] text-slate-400">지정된 휴식 시간 및 바우처 오찬</p>
+              </div>
+            </div>
+            <div class="bg-slate-900/80 rounded-xl p-3 text-xs space-y-1.5 text-slate-300 border border-slate-800/80">
+              <div>
+                <span class="text-amber-400 font-semibold">☕ 커피 브레이크:</span>
+                <span>매일 10:30~11:30 / 15:00~16:00 (컨벤션 1·3층 로비, 스케이팅장 오픈 라운지)</span>
+              </div>
+              <div class="pt-1 border-t border-slate-800">
+                <span class="text-amber-400 font-semibold">🍱 오찬 (종이바우처 제출):</span>
+                <span>매일 12:30~14:00 (컨벤션홀 / 스피드스케이팅장)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wi-Fi 및 네트워크 -->
+          <div class="bg-its-card rounded-2xl border border-slate-800 p-4 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="wifi" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">무료 Wi-Fi 네트워크</h4>
+                  <p class="text-[11px] text-slate-400">행사장 전역 무료 초고속 무선 인터넷</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-cyan-950 text-cyan-300 border border-cyan-800">
+                초고속 5G
+              </span>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <!-- 컨벤션센터 (클립보드 복사 버튼 제공) -->
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 flex flex-col justify-between space-y-1.5">
+                <div>
+                  <div class="flex items-center justify-between">
+                    <p class="text-cyan-400 font-bold text-xs">컨벤션센터</p>
+                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">보안망</span>
+                  </div>
+                  <p class="text-slate-300 text-[11px] mt-1 font-mono">SSID: 2026_ITS_WC-WiFi</p>
+                  <p class="text-slate-400 text-[11px] mt-0.5">PW: <span id="wifiPwVal" class="text-white font-mono font-bold select-all">20261019@</span></p>
+                </div>
+                <button id="btnCopyWifiPw" class="w-full py-1.5 px-2 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 text-[10px] font-bold flex items-center justify-center gap-1 transition active:scale-95 shadow-sm">
+                  <i data-lucide="copy" class="w-3 h-3 text-cyan-400"></i>
+                  <span id="btnCopyWifiPwText">PW 클립보드 복사</span>
+                </button>
+              </div>
+
+              <!-- 스피드스케이팅 (오픈망) -->
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 flex flex-col justify-between space-y-1.5">
+                <div>
+                  <div class="flex items-center justify-between">
+                    <p class="text-emerald-400 font-bold text-xs">스피드스케이팅</p>
+                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">공용망</span>
+                  </div>
+                  <p class="text-slate-300 text-[11px] mt-1 font-mono">SSID: 2026ITS_[Zone]</p>
+                  <p class="text-emerald-400 text-[11px] mt-0.5 font-medium">별도 비밀번호 없음 (Open)</p>
+                </div>
+                <div class="py-1.5 px-2 rounded-lg bg-emerald-500/10 text-emerald-300/80 text-[10px] text-center font-medium border border-emerald-500/20">
+                  게이트·홀 자동 연결
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 프리뷰룸 & 발표자 지원 -->
+          <div class="bg-its-card rounded-2xl border border-slate-800 p-4 space-y-2.5">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0">
+                <i data-lucide="presentation" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">프리뷰룸 (발표자·좌장 지원)</h4>
+                <p class="text-[11px] text-slate-400">컨벤션센터 3층 (세션 시작 최소 4시간 전 점검 권장)</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-300 bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+              발표자료 최종 제출 및 시연 호환성 확인, 트래블 그랜트 학생 활동비 및 우수논문 상금 서류 정산 운영 (08:00~18:00 운영)
+            </p>
+          </div>
+
+          <!-- 의무실 / 기도실 / 기타 -->
+          <div class="grid grid-cols-2 gap-2.5">
+            <div class="bg-its-card rounded-2xl border border-slate-800 p-3 space-y-1">
+              <div class="flex items-center gap-1.5 text-rose-400 text-xs font-bold">
+                <i data-lucide="cross" class="w-4 h-4"></i> 의무실
+              </div>
+              <p class="text-[11px] text-slate-300">
+                • 컨벤션센터: 다목적실 102호<br>
+                • 스케이팅장: 1층 Gate 3 (G16)<br>
+                (09:00~18:00 운영)
+              </p>
+            </div>
+            <div class="bg-its-card rounded-2xl border border-slate-800 p-3 space-y-1">
+              <div class="flex items-center gap-1.5 text-indigo-400 text-xs font-bold">
+                <i data-lucide="moon" class="w-4 h-4"></i> 기도실
+              </div>
+              <p class="text-[11px] text-slate-300">
+                • 컨벤션센터: 다목적실 304호<br>
+                • 스케이팅장: 1층 Gate 3 (G16)<br>
+                (09:00~18:00 운영)
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- TAB 4: 제휴 혜택 & 맛집 투어 (Benefits & Partners) -->
+      <!-- ============================================== -->
+      <section id="tabBenefits" class="tab-content hidden p-4 space-y-4">
+        <!-- Tab 4 Sub-Navigation Toggle: 강릉 즐길거리 vs 참가자 맛집 혜택 -->
+        <div class="flex items-center p-1 rounded-2xl bg-slate-900 border border-slate-800">
+          <button id="btnSubTabStores" class="subtab-btn flex-1 py-2 rounded-xl text-xs font-bold transition bg-its-primary text-white active" data-sub="stores">
+            <i data-lucide="utensils" class="w-3.5 h-3.5 inline mr-1"></i> 참가자 맛집 혜택 (19곳)
+          </button>
+          <button id="btnSubTabAttractions" class="subtab-btn flex-1 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white" data-sub="attractions">
+            <i data-lucide="party-popper" class="w-3.5 h-3.5 inline mr-1"></i> 강릉 즐길거리 (11선)
+          </button>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- SUB-SECTION 1: 강릉 즐길거리 (각종 축제 및 관광지 11선) -->
+        <!-- ============================================== -->
+        <div id="subSectionAttractions" class="space-y-3 hidden">
+          <div class="p-4 rounded-3xl bg-gradient-to-r from-cyan-950/70 via-slate-900 to-indigo-950/70 border border-cyan-500/30 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded-full bg-cyan-400 text-slate-950 font-black text-[10px]">What's On</span>
+                <h3 class="text-sm font-bold text-white">강릉 세계총회 연계 즐길거리 & 축제</h3>
+              </div>
+              <span class="text-[10px] text-cyan-300 font-mono">11개 명소</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              2026 총회 기간 중 펼쳐지는 강릉 대표 커피·누들 축제와 야시장, 솔향수목원 야간개장 및 문화예술 전시를 만나보세요.
+            </p>
+          </div>
+
+          <!-- Attractions List Container (Rendered dynamically) -->
+          <div id="attractionsListContainer" class="space-y-3">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- SUB-SECTION 2: 참가자 전용 맛집 제휴 혜택 (19곳) -->
+        <!-- ============================================== -->
+        <div id="subSectionStores" class="space-y-3">
+          <!-- Badge Benefit Banner -->
+          <div class="p-4 rounded-3xl bg-gradient-to-r from-emerald-900/60 via-teal-900/40 to-slate-900 border border-emerald-500/30 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded-full bg-its-accent text-slate-950 font-black text-[10px]">등록증 혜택</span>
+              <h3 class="text-sm font-bold text-white">2026 ITS 총회 참가자 전용 제휴 혜택</h3>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              2026 ITS 세계총회 참가자 비표(등록증)를 제시하면 강릉 현지 제휴 음식점 및 카페에서 <strong>음료 무료 제공, 5~10% 할인, 시그니처 디저트 증정</strong> 등의 혜택을 받으실 수 있습니다.
+            </p>
+          </div>
+
+          <!-- Category Filter -->
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+            <button class="store-filter-btn px-3 py-1.5 rounded-xl bg-its-primary text-white text-xs font-bold transition active" data-cat="all">
+              전체 (19)
+            </button>
+            <button class="store-filter-btn px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 text-xs font-bold transition hover:text-white" data-cat="food">
+              음식 (11)
+            </button>
+            <button class="store-filter-btn px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 text-xs font-bold transition hover:text-white" data-cat="cafe">
+              카페 (6)
+            </button>
+            <button class="store-filter-btn px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 text-xs font-bold transition hover:text-white" data-cat="dessert">
+              디저트 (2)
+            </button>
+          </div>
+
+          <!-- Stores Card Grid -->
+          <div id="storeListContainer" class="space-y-3">
+            <!-- Dynamically populated via JS -->
+          </div>
+
+          <!-- Registration Pass Breakdown Modal Opener -->
+          <div class="pt-2">
+            <button id="btnViewPassBenefits" class="w-full py-3 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs text-slate-300 font-semibold flex items-center justify-center gap-2">
+              <i data-lucide="ticket" class="w-4 h-4 text-its-accent"></i>
+              <span>등록 카테고리별 세부 참가 혜택표 보기</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (Mobile Tab Navigation) -->
+    <nav class="glass-nav absolute bottom-0 inset-x-0 z-40 px-3 py-2 flex items-center justify-around">
+      <button class="nav-tab flex flex-col items-center gap-1 text-its-accent" data-tab="tabSchedule">
+        <i data-lucide="calendar" class="w-5 h-5"></i>
+        <span class="text-[10px] font-bold">프로그램 일정</span>
+      </button>
+
+      <button class="nav-tab flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200" data-tab="tabFloorMap">
+        <i data-lucide="layout-grid" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold">전시배치·뉴스</span>
+      </button>
+
+      <button class="nav-tab flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200" data-tab="tabFacilities">
+        <i data-lucide="building" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold">편의시설</span>
+      </button>
+
+      <button class="nav-tab flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200" data-tab="tabBenefits">
+        <i data-lucide="sparkles" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold">기타혜택·맛집</span>
+      </button>
+    </nav>
+
+
+    <!-- ============================================== -->
+    <!-- In-App Sheet / Browser Modal (Prevents Leaving App) -->
+    <!-- ============================================== -->
+    <div id="inAppBrowserModal" class="hidden absolute inset-0 z-50 bg-slate-950 flex flex-col transition-all duration-300">
+      <!-- Fixed Top Header -->
+      <div class="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between shrink-0 shadow-md">
+        <button id="btnCloseInAppModal" class="px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center gap-1.5 border border-slate-700 active:scale-95 transition">
+          <i data-lucide="arrow-left" class="w-4 h-4 text-its-accent"></i>
+          <span>앱으로 돌아가기</span>
+        </button>
+        <div class="text-center truncate px-2 max-w-[190px]">
+          <h4 id="inAppModalTitle" class="text-xs font-bold text-white truncate">상세 정보</h4>
+          <p id="inAppModalSubtitle" class="text-[10px] text-slate-400 truncate">2026 ITS World Congress</p>
+        </div>
+        <div class="flex items-center gap-1">
+          <a id="inAppExternalLinkBtn" href="#" target="_blank" rel="noopener" class="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 flex items-center justify-center" title="외부 브라우저에서 열기">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+          <button id="btnDismissInAppModal" class="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrollable Modal Content Body -->
+      <div id="inAppModalBody" class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
+        <!-- Dynamically injected -->
+      </div>
+    </div>
+
+    <!-- Quick Toast Notification -->
+    <div id="appToast" class="pointer-events-none absolute top-14 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-2xl bg-emerald-500/95 text-slate-950 text-xs font-bold shadow-2xl backdrop-blur-md opacity-0 transition-opacity duration-300 flex items-center gap-1.5">
+      <i data-lucide="check-circle" class="w-4 h-4"></i>
+      <span id="appToastMsg">알림 메시지</span>
+    </div>
+
+    <!-- Modal: Registration Categories Table -->
+    <div id="passModal" class="hidden absolute inset-0 z-50 bg-black/80 backdrop-blur-md flex flex-col justify-end">
+      <div class="bg-slate-900 border-t border-slate-700 rounded-t-3xl max-h-[85%] flex flex-col overflow-hidden">
+        <div class="p-4 border-b border-slate-800 flex justify-between items-center">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-4 h-4 text-its-accent"></i> 등록 카테고리 및 출입 범위
+          </h3>
+          <button id="btnClosePassModal" class="p-1 rounded-full text-slate-400 hover:text-white">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+        <div class="overflow-y-auto p-4 space-y-3 text-xs text-slate-300">
+          <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+            <div class="flex justify-between font-bold text-white">
+              <span>VIP</span>
+              <span class="text-its-accent">전체 세션·오찬·갈라·VIP디너 O</span>
+            </div>
+            <p class="text-[11px] text-slate-400">비표: 컨벤션센터 / 기술시연 및 기술시찰 요청시 참여 가능</p>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+            <div class="flex justify-between font-bold text-white">
+              <span>Delegate (Full Day)</span>
+              <span class="text-emerald-400">세션·전시·오찬·웰컴 O</span>
+            </div>
+            <p class="text-[11px] text-slate-400">비표: 컨벤션센터 / 기술시연(현장신청), 기술시찰(온라인사전신청)</p>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+            <div class="flex justify-between font-bold text-white">
+              <span>Speaker / Moderator</span>
+              <span class="text-cyan-400">전체 세션·전시·시연·시찰·오찬 O</span>
+            </div>
+            <p class="text-[11px] text-slate-400">비표: 컨벤션센터 3층 프리뷰룸 사전 확인 권장</p>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+            <div class="flex justify-between font-bold text-white">
+              <span>Exhibitor & Demonstrator</span>
+              <span class="text-amber-400">전시·개폐회식·오찬(부스당 2매)</span>
+            </div>
+            <p class="text-[11px] text-slate-400">비표: 스피드스케이팅경기장(전시장) 안내데스크</p>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+            <div class="flex justify-between font-bold text-white">
+              <span>Exhibition Visitor</span>
+              <span class="text-slate-400">전시관람·개폐회식·기술시연 O</span>
+            </div>
+            <p class="text-[11px] text-slate-400">컨퍼런스 및 오찬 제외, 비표 수령: 스피드스케이팅장</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript Logic & Mock Datasets -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // -------------------------------------------------------------------------
+    // 1. Data Store: Programs & Timetable (Parsed from PDF & Official Schedule)
+    // -------------------------------------------------------------------------
+    const scheduleData = [
+      // Day 0: 한눈에 보기
+      {
+        day: 0,
+        dayTitle: "전체 프로그램 요약 (10.19 ~ 10.23)",
+        time: "10.19(월) ~ 10.23(금)",
+        category: "공식",
+        venue: "skating",
+        title: "2026 강릉 ITS 세계총회 산업전시회 및 야외 기술시연",
+        desc: "글로벌 모빌리티 기업 200여 개사 최첨단 스마트 교통기술 및 실증 전시 (매일 10:00~18:00)"
+      },
+      {
+        day: 0,
+        dayTitle: "전체 프로그램 요약",
+        time: "10.19(월) 10:00 - 11:00",
+        category: "공식",
+        venue: "convention",
+        title: "개회식 (Opening Ceremony)",
+        desc: "장소: 강릉컨벤션센터 컨벤션홀 / 국내외 주요 내빈 및 기조연설"
+      },
+      {
+        day: 0,
+        dayTitle: "전체 프로그램 요약",
+        time: "10.19(월) 20:00",
+        category: "사교",
+        venue: "skating",
+        title: "2026 ITS 환영 드론쇼",
+        desc: "강릉 올림픽 파크 상공 펼쳐지는 첨단 모빌리티 라이트 드론쇼"
+      },
+      {
+        day: 0,
+        dayTitle: "전체 프로그램 요약",
+        time: "10.20(화) 09:00 - 10:30",
+        category: "회의",
+        venue: "plenary",
+        title: "전체 회의 1 (Plenary 1): AI-driven ITS for Safe & Sustainable Future",
+        desc: "안전하고 지속가능한 미래를 향한 인공지능 기반 지능형 교통체계"
+      },
+      {
+        day: 0,
+        dayTitle: "전체 프로그램 요약",
+        time: "10.21(수) 09:00 - 10:30",
+        category: "회의",
+        venue: "plenary",
+        title: "전체 회의 2 (Plenary 2): Connected World & Human-Centered Mobility",
+        desc: "인간 중심의 포용적 모빌리티와 연결된 세계의 설계"
+      },
+      {
+        day: 0,
+        dayTitle: "전체 프로그램 요약",
+        time: "10.22(목) 09:00 - 10:30",
+        category: "회의",
+        venue: "plenary",
+        title: "전체 회의 3 (Plenary 3): Localized Innovation & New Ecosystems",
+        desc: "지역화된 모빌리티 혁신과 새로운 생태계 구축 (Public Day 연계)"
+      },
+      {
+        day: 0,
+        dayTitle: "전체 프로그램 요약",
+        time: "10.22(목) 19:00",
+        category: "사교",
+        venue: "skating",
+        title: "특별 공연: 아이스쇼 (Ice Show)",
+        desc: "강릉 하키센터 / 올림픽 레거시 특별 문화 예술 공연"
+      },
+      {
+        day: 0,
+        dayTitle: "전체 프로그램 요약",
+        time: "10.23(금) 14:00 - 15:00",
+        category: "공식",
+        venue: "convention",
+        title: "폐회식 (Closing Ceremony)",
+        desc: "총회 결산 보고, 차기 개최지 인도식 및 공식 폐회"
+      },
+
+      // Day 1: 10월 19일 월요일
+      {
+        day: 1,
+        time: "10:00 - 11:00",
+        category: "공식",
+        venue: "convention",
+        title: "개회식 (Opening Ceremony)",
+        desc: "강릉컨벤션센터 컨벤션홀 / 전 세계 정관계 및 ITS 대표단 참석"
+      },
+      {
+        day: 1,
+        time: "11:30 - 12:30",
+        category: "공식",
+        venue: "skating",
+        title: "전시장 개관식 (Exhibition Opening Ribbon Cutting)",
+        desc: "강릉스피드스케이팅경기장 메인 로비 / 테이프 커팅 및 부스 순시"
+      },
+      {
+        day: 1,
+        time: "11:30 - 12:30",
+        category: "학술",
+        venue: "convention",
+        title: "STP002 / TP002: V2X 시뮬레이션 및 자율주행 서비스 사회적 영향",
+        desc: "회의실 102 & 103 / V2X 통신 매핑과 자율주행 셔틀 수용성 분석"
+      },
+      {
+        day: 1,
+        time: "12:30 - 14:00",
+        category: "편의",
+        venue: "convention",
+        title: "공식 오찬 (Official Lunch)",
+        desc: "컨벤션홀 & 스피드스케이팅경기장 (바우처 지참)"
+      },
+      {
+        day: 1,
+        time: "14:00 - 16:00",
+        category: "회의",
+        venue: "convention",
+        title: "장관 회의 (Ministerial Round Table)",
+        desc: "각국 국토·교통부 장관급 모빌리티 정책 선언 및 양자회담"
+      },
+      {
+        day: 1,
+        time: "15:30 - 17:00",
+        category: "학술",
+        venue: "convention",
+        title: "SIS001: 초연결 모빌리티를 위한 차세대 V2X 기술 세션",
+        desc: "회의실 106 / C-V2X 상용화 전략 및 실시간 긴급 교통 관리(RTTI)"
+      },
+      {
+        day: 1,
+        time: "17:00 - 18:30",
+        category: "사교",
+        venue: "skating",
+        title: "환영 리셉션 (Welcome Reception)",
+        desc: "강릉스피드스케이팅경기장 오픈 라운지 / 환영 칵테일 및 네트워킹"
+      },
+      {
+        day: 1,
+        time: "20:00",
+        category: "사교",
+        venue: "skating",
+        title: "2026 ITS 강릉 드론쇼",
+        desc: "야외 광장 / 1,000대 규모 첨단 모빌리티 기념 드론쇼"
+      },
+
+      // Day 2: 10월 20일 화요일
+      {
+        day: 2,
+        time: "09:00 - 10:30",
+        category: "회의",
+        venue: "plenary",
+        title: "전체 회의 1: AI-driven ITS towards a Safe and Sustainable Future",
+        desc: "컨벤션홀 / AI 기반 도로교통 안전 및 친환경 수송 비전 발표"
+      },
+      {
+        day: 2,
+        time: "10:00 - 18:00",
+        category: "전시",
+        venue: "skating",
+        title: "산업 전시회 & 기술시연 (Exhibition & Demo)",
+        desc: "스피드스케이팅장 / 현대차, 바이두, 덴소, 한국도로공사 등 200여 부스"
+      },
+      {
+        day: 2,
+        time: "11:00 - 12:30",
+        category: "학술",
+        venue: "convention",
+        title: "ES 1: From Pilots to Platforms (5G/6G 시대 커넥티드 자율주행)",
+        desc: "회의실 106 / 5G·6G 통신 기반 전국 단위 CCAM 스케일업 전략"
+      },
+      {
+        day: 2,
+        time: "14:00 - 15:30",
+        category: "학술",
+        venue: "convention",
+        title: "SIS012: 도로 안전 강화를 위한 C-V2X 구축 가속화",
+        desc: "회의실 104 / 한국-유럽 C-ITS 표준 비교 및 인프라 연동 방안"
+      },
+      {
+        day: 2,
+        time: "18:00 - 20:00",
+        category: "사교",
+        venue: "convention",
+        title: "VIP 디너 (VIP Dinner)",
+        desc: "초청 VIP 한정 공식 만찬 행사"
+      },
+
+      // Day 3: 10월 21일 수요일
+      {
+        day: 3,
+        time: "09:00 - 10:30",
+        category: "회의",
+        venue: "plenary",
+        title: "전체 회의 2: Connected World - Human-Centered and Inclusive Mobility",
+        desc: "컨벤션홀 / 모두를 위한 포용적 스마트 교통과 교통약자 포용 정책"
+      },
+      {
+        day: 3,
+        time: "11:00 - 12:30",
+        category: "학술",
+        venue: "convention",
+        title: "ES 4: AI in Mobility - The Good, The Bad, and The Ugly",
+        desc: "회의실 106 / 모빌리티 AI 규제, 신뢰성, 데이터 윤리와 프라이버시"
+      },
+      {
+        day: 3,
+        time: "14:00 - 17:00",
+        category: "회의",
+        venue: "convention",
+        title: "K-ITS 수출기업 지원 비즈니스 매칭 상담회",
+        desc: "회의실 303 / 해외 바이어와 국내 스마트 모빌리티 강소기업 1:1 상담"
+      },
+      {
+        day: 3,
+        time: "18:00 - 20:30",
+        category: "사교",
+        venue: "convention",
+        title: "갈라 디너 (Gala Dinner)",
+        desc: "강릉 씨마크/컨벤션 메인홀 / ITS 총회 참가자 공식 문화 갈라쇼"
+      },
+
+      // Day 4: 10월 22일 목요일 (Public Day)
+      {
+        day: 4,
+        time: "09:00 - 10:30",
+        category: "회의",
+        venue: "plenary",
+        title: "전체 회의 3: The Evolution of Mobility - Localized Innovation",
+        desc: "컨벤션홀 / 지역 특화 모빌리티 혁신과 도심 항공 모빌리티(AAM)"
+      },
+      {
+        day: 4,
+        time: "10:00 - 17:00",
+        category: "공식",
+        venue: "skating",
+        title: "퍼블릭 데이 & 청년 프로그램 (Public Day)",
+        desc: "일반 시민 및 학생 전시장 무료 개방, 미래 모빌리티 진로 체험"
+      },
+      {
+        day: 4,
+        time: "14:00 - 17:00",
+        category: "회의",
+        venue: "convention",
+        title: "AI-ITS 혁신을 위한 K-NPU 전환 지원 밋업",
+        desc: "회의실 302 / 국내 차세대 온디바이스 AI 반도체 교통 적용 세미나"
+      },
+      {
+        day: 4,
+        time: "19:00 - 20:30",
+        category: "사교",
+        venue: "skating",
+        title: "특별 공연: 강릉 올림픽 레거시 아이스쇼",
+        desc: "강릉 하키센터 / 국가대표 피겨스케이팅 팀 특별 아이스 퍼포먼스"
+      },
+
+      // Day 5: 10월 23일 금요일
+      {
+        day: 5,
+        time: "09:00 - 12:30",
+        category: "학술",
+        venue: "convention",
+        title: "마무리 학술 세션 및 글로벌 ITS 표준화 총회",
+        desc: "회의실 102~310 / V2X 국가별 상호운용성 종합 검증 보고"
+      },
+      {
+        day: 5,
+        time: "14:00 - 15:00",
+        category: "공식",
+        venue: "convention",
+        title: "폐회식 (Closing Ceremony)",
+        desc: "컨벤션홀 / 2026 강릉총회 공식 폐회 및 차기 개최지 깃발 전달"
+      },
+      {
+        day: 5,
+        time: "18:00 - 20:00",
+        category: "사교",
+        venue: "skating",
+        title: "특별 공연: K-뮤직 나이트 페스티벌",
+        desc: "야외 특설무대 / 글로벌 참가자와 시민이 함께하는 K-POP 콘서트"
+      }
+    ];
+
+    // -------------------------------------------------------------------------
+    // 2. Data Store: Exhibition Booths & Companies (Floor Map Directory)
+    // -------------------------------------------------------------------------
+        const exhibitorBoothsData = [
+  {
+    "booth": "P1",
+    "name": "국토교통부",
+    "desc": "한국 ITS의 발전 과정과 제도적 기반, 미래 정책 비전과 전국 교통데이터 연계 체계를 종합 소개합니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 15.2,
+    "y": 50
+  },
+  {
+    "booth": "P2",
+    "name": "현대자동차그룹",
+    "desc": "글로벌 완성차 제조기업으로 차세대 목적기반차량(PBV) 및 자율주행 모빌리티를 선보입니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 15.2,
+    "y": 38.5
+  },
+  {
+    "booth": "P3",
+    "name": "강릉시청",
+    "desc": "도시 전역 지능형교통체계(ITS)와 실시간 신호제어, 스마트 횡단보도, AI 자율주행 실증 등 미래 교통도시를 구현합니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 22.8,
+    "y": 57
+  },
+  {
+    "booth": "P4",
+    "name": "주식회사 바이다",
+    "desc": "지능형 교통 시스템(ITS) 시장을 선도하는 자체 개발 교통용 레이더 센서 및 고유 신호처리 기술 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 22.8,
+    "y": 49.5
+  },
+  {
+    "booth": "P5",
+    "name": "롯데이노베이트(주)",
+    "desc": "자율주행, 스마트 톨링, ITS/C-ITS, EVSIS 전기차 충전 인프라 등 모빌리티 통합 플랫폼을 구축합니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 22.8,
+    "y": 38.5
+  },
+  {
+    "booth": "P6",
+    "name": "재단법인 자율주행기술개발혁신사업단",
+    "desc": "2027년 융합형 레벨4+ 자율주행 상용화 기반 마련을 위한 범부처 협력체계 R&D 성과를 소개합니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 22.8,
+    "y": 27
+  },
+  {
+    "booth": "P7_1",
+    "name": "(재) 강릉과학산업진흥원",
+    "desc": "산·학·연·관 긴밀한 협력 네트워크를 통해 유망 창업기업 육성 및 지역 강소기업을 지원합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 49.5
+  },
+  {
+    "booth": "P7_2",
+    "name": "China ITS Industry Alliance",
+    "desc": "중국 MOT, MIIT 등이 지원하는 비영리 기구로 580여 회원사와 글로벌 C-ITS 협력을 추진합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 52
+  },
+  {
+    "booth": "P8",
+    "name": "한국도로교통공단 (KoROAD)",
+    "desc": "도로교통안전 전담 국가기관으로 C-ITS, 자율주행 안전, 데이터 기반 교통관리 노하우를 공유합니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 32.5,
+    "y": 38.5
+  },
+  {
+    "booth": "P9",
+    "name": "에스트래픽(주)",
+    "desc": "도로(스마트 톨링, MLFF, ITS), 철도(신호, 통신, AFC), AX 분야 스마트 교통 인프라 통합 솔루션 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 49.5
+  },
+  {
+    "booth": "P11",
+    "name": "진우에이티에스(주)",
+    "desc": "스마트 교통·통신 인프라, 전기·철도신호, CCTV 및 스마트 도로안전시설 전문 시공·제조 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 49.5
+  },
+  {
+    "booth": "P12",
+    "name": "실도로 자율주행 인프라기반 통합실증체인 얼라이언스",
+    "desc": "한국자동차연구원 & 자동차융합기술원 등 전국 실증기관이 협력하여 실증 데이터 및 핵심기술을 검증합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 38.5
+  },
+  {
+    "booth": "P13",
+    "name": "㈜에스오에스랩",
+    "desc": "라이다 센서 전문기업으로 차세대 스마트 주차유도 LPGS SPOT® 및 실시간 유동량 모니터링 LCAS QMAP®을 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 49.5
+  },
+  {
+    "booth": "P14",
+    "name": "주식회사 핀텔",
+    "desc": "The Smartest AI Solution 슬로건 아래 PREVAX 도시 영상·센서 입체분석 지능형 교통 AI 플랫폼을 설계합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.5,
+    "y": 38.5
+  },
+  {
+    "booth": "P15_1",
+    "name": "(주)LIG",
+    "desc": "기술을 기반으로 그룹사 경쟁력 제고 및 모빌리티 미래성장사업 발굴을 수행하는 지주회사입니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 47.2,
+    "y": 48
+  },
+  {
+    "booth": "P15_2",
+    "name": "주식회사 엘아이지아큐버",
+    "desc": "무선망 최적화 및 위성통신·자율주행 AI 융합 초연결 차세대 네트워크 환경을 구현합니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 47.2,
+    "y": 51.5
+  },
+  {
+    "booth": "P17, P19",
+    "name": "ERTICO - 유럽 지능형 교통 시스템",
+    "desc": "유럽과 글로벌 모빌리티 디지털화를 선도하며 안전하고 회복탄력적인 CCAM 파트너십을 이끌어갑니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 55,
+    "y": 49.5
+  },
+  {
+    "booth": "P18",
+    "name": "2029ITSWC、ITS Taiwan",
+    "desc": "2029 타이베이 세계총회 유치 및 대만 스마트 교통 산업-정부 가교 역할을 수행하는 협회관입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 54,
+    "y": 38.5
+  },
+  {
+    "booth": "P20",
+    "name": "퀄컴",
+    "desc": "스냅드래곤 디지털 섀시와 C-V2X 칩셋 솔루션으로 엣지부터 클라우드까지 지능형 모빌리티를 구현합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 59.2,
+    "y": 38.5
+  },
+  {
+    "booth": "P21",
+    "name": "주식회사 노비텍",
+    "desc": "i-Nova 지능형 교통단속, 주차관리, 도로안전 감시 특수 카메라 전문 개발·제조 기업입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 62.5,
+    "y": 49.5
+  },
+  {
+    "booth": "P22, P24",
+    "name": "Toyota Motor Corporation",
+    "desc": "교통사고 제로와 모두를 위한 이동(Mobility for All)을 실현하는 첨단 ITS 모빌리티 솔루션을 선보입니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 69.2,
+    "y": 49.5
+  },
+  {
+    "booth": "P23",
+    "name": "AISIN CORPORATION",
+    "desc": "글로벌 부품 공급업체로 전동화 파워트레인 및 탑승자 상태 감지 센싱 기반 안심 모빌리티를 지원합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 67.8,
+    "y": 38.5
+  },
+  {
+    "booth": "P25",
+    "name": "덴소코리아주식회사",
+    "desc": "글로벌 자동차 부품 기업 덴소 한국 거점으로 클러스터, HUD, ADAS 센싱 핵심 전장 부품을 공급합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 72.8,
+    "y": 38.5
+  },
+  {
+    "booth": "P26",
+    "name": "미래 드론 교통관 (항공안전기술원)",
+    "desc": "통합항공인증체계 구축 및 무인기 안전기술, UAM/AAM 미래 드론 교통 생태계를 활성화합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 76.8,
+    "y": 59.5
+  },
+  {
+    "booth": "P27",
+    "name": "한국도로공사",
+    "desc": "전국 4,480km 고속도로 건설·운영을 담당하며 첨단 C-ITS 및 디지털 트윈 교통관제를 선도합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 76.8,
+    "y": 49.5
+  },
+  {
+    "booth": "P28",
+    "name": "경기도미래모빌리티센터 ((재)차세대융합기술연구원)",
+    "desc": "판교제로시티 운영조직으로서 자율주행 산업 생태계를 조성하고 공공 모빌리티 혁신을 추진합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 77.2,
+    "y": 38.5
+  },
+  {
+    "booth": "P30, P31",
+    "name": "국토교통부 (AX Sprint)",
+    "desc": "미래 모빌리티와 스마트 인프라 혁신기술을 통해 국토교통 분야 AI 전환(AX)과 경쟁력을 이끕니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 84.5,
+    "y": 45
+  },
+  {
+    "booth": "S1",
+    "name": "주식회사 비트센싱",
+    "desc": "차량용 4D 이미징 레이더와 전천후 교통 모니터링 센서로 스마트 교차로 인지 솔루션을 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 63.5
+  },
+  {
+    "booth": "S2",
+    "name": "에티포스",
+    "desc": "레벨 4+ 자율주행 및 커넥티드 모빌리티를 위한 맞춤형 V2X OBU/RSU 소프트웨어 정의 모뎀 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 56.5
+  },
+  {
+    "booth": "S3_1",
+    "name": "아우토크립트",
+    "desc": "차량 사이버보안, V2X 보안 인증, 전기차 충전 보안 등 피지컬 AI 엔드투엔드 보안을 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 30.5
+  },
+  {
+    "booth": "S3_2",
+    "name": "주식회사 네오트래픽",
+    "desc": "교통신호제어, 스마트교차로 및 스마트횡단보도 시스템 소프트웨어와 현장 인프라를 구축합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 33.5
+  },
+  {
+    "booth": "S4_1",
+    "name": "디지털도로대장 (국토교통부 디지털도로팀)",
+    "desc": "전국 도로 시설물 아날로그 대장을 디지털 전환하고 도로 ITS 기본계획 및 스마트톨링을 운영합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 22
+  },
+  {
+    "booth": "S4_2",
+    "name": "코어시스템즈",
+    "desc": "버스 중심 대중교통 데이터 실시간 수집 및 정확한 운행관리 교통 IT 파트너입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 24.5
+  },
+  {
+    "booth": "S5_1",
+    "name": "(주)이레솔루션",
+    "desc": "교통 시스템 및 인프라 컨설팅, 구축, 유지보수 전문 토털 솔루션을 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 63.5
+  },
+  {
+    "booth": "S5_2",
+    "name": "유티정보(주)",
+    "desc": "UT 통합 교통 관제 시스템을 기반으로 자율주행, AI, 디지털 트윈 R&D를 선도합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 66
+  },
+  {
+    "booth": "S6_1",
+    "name": "새솔테크",
+    "desc": "PKI 기반 실시간 V2X 보안 인증서 플랫폼을 통해 차량-인프라 간 신뢰 통신을 지원합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 56.5
+  },
+  {
+    "booth": "S6_2",
+    "name": "MDS테크",
+    "desc": "자율주행 센서 융합, V2X 통신, 차량 기능안전(ISO 26262) 자동차 소프트웨어 솔루션을 공급합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 59
+  },
+  {
+    "booth": "S6_3",
+    "name": "Cohda Wireless",
+    "desc": "V2X 온보드/노변 장비 및 커넥티드 자율주행차·지하광산 위치측위 소프트웨어 글로벌 선도 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 54
+  },
+  {
+    "booth": "S7_1",
+    "name": "에코비트 (삼원FA)",
+    "desc": "철도·버스 대중교통 결제 인프라와 AI·빅데이터 기반 통합 지능형 교통 시스템을 구축합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 30.5
+  },
+  {
+    "booth": "S7_2",
+    "name": "웨이즈원 주식회사",
+    "desc": "LDM 기술 기반 LDM2X, LDM TWIN 관제플랫폼으로 스마트 교차로 및 자율협력주행을 지원합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 33.5
+  },
+  {
+    "booth": "S8_1",
+    "name": "위코",
+    "desc": "Chroma 공식 총판으로 배터리 충방전기, 모터 다이노, EV/EVSE 모빌리티 테스트 시스템을 공급합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 22
+  },
+  {
+    "booth": "S8_2",
+    "name": "(주)모바휠",
+    "desc": "음파 기반 AI 센서 EG-Way를 통해 도로 노면 상태와 결빙·수막 위험을 실시간 분석합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 24.5
+  },
+  {
+    "booth": "S8_3",
+    "name": "주식회사 노타",
+    "desc": "넷스프레소(NetsPresso) 하드웨어 인지형 AI 경량화 플랫폼 및 온디바이스 비전 AI 솔루션을 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 26.5
+  },
+  {
+    "booth": "S9",
+    "name": "ITS Singapore",
+    "desc": "싱가포르 지능형교통체계 비영리 협회관으로 혁신 교통 솔루션과 글로벌 비즈니스를 연계합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 63.5
+  },
+  {
+    "booth": "S10_1",
+    "name": "벡터 인포매틱",
+    "desc": "소프트웨어 정의 차량(SDV) 개발·검증을 위한 임베디드 툴 및 글로벌 엔지니어링 솔루션 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 56.5
+  },
+  {
+    "booth": "S10_2",
+    "name": "STAR Systems International Ltd.",
+    "desc": "전자요금징수(ETC), MLFF 다차로 스마트톨링을 위한 고성능 RFID 트랜스폰더와 리더기를 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 54
+  },
+  {
+    "booth": "S11",
+    "name": "주식회사 싸인텔레콤",
+    "desc": "도로전광표지(VMS), BIS 버스정보시스템, 스마트 디스플레이 기획·설계·구축 전문 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 30.5
+  },
+  {
+    "booth": "S12",
+    "name": "ITS Suzhou",
+    "desc": "중국 쑤저우 스마트 교통 인프라 디지털화 및 AI 연계 교통 산업 클러스터를 홍보합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 23.5
+  },
+  {
+    "booth": "S13_1",
+    "name": "Wavetronix",
+    "desc": "미국 본사 제조 고정밀 스마트 레이더 센서(SmartSensor)로 정확한 도로 차량 검지를 실현합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 63.5
+  },
+  {
+    "booth": "S13_2",
+    "name": "주식회사 안랩",
+    "desc": "국내 대표 통합보안 기업으로 제로 트러스트 및 AI 기반 스마트 인프라 사이버보안을 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 66
+  },
+  {
+    "booth": "S14_1",
+    "name": "뱀부스(주)",
+    "desc": "정밀도로지도 기반 AI 센서 데이터 융합 분석 및 3D 디지털 트윈 교통관제 벤처기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 56.5
+  },
+  {
+    "booth": "S14_2",
+    "name": "ITS America Events",
+    "desc": "미국 ITS 협회관으로 북미 공공-민간 교통 리더십과 차세대 스마트 교통 표준을 공유합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 54
+  },
+  {
+    "booth": "S15",
+    "name": "VanJee Technology Co., Ltd",
+    "desc": "LiDAR, WIM(고속축중), ETC 및 V2X 첨단 도로 모니터링 인프라 통합 솔루션 전문 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 30.5
+  },
+  {
+    "booth": "S16",
+    "name": "ITS Asia-Pacific (ITS AP)",
+    "desc": "아시아·태평양 11개국 ITS 협력 기구로 2027 오클랜드 포럼 및 역내 기술 협력을 총괄합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 23.5
+  },
+  {
+    "booth": "S17",
+    "name": "렉스젠(주)",
+    "desc": "AI 기반 스마트 영상분석, 차량번호인식(LPR), 도로안전 감시 솔루션을 개발합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 47.2,
+    "y": 63.5
+  },
+  {
+    "booth": "S18",
+    "name": "Umovity",
+    "desc": "Econolite와 PTV Group이 결합된 글로벌 교통 계획, 실시간 관제 및 AI 시뮬레이션 플랫폼입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 47.2,
+    "y": 56.5
+  },
+  {
+    "booth": "S19",
+    "name": "TomTom",
+    "desc": "글로벌 지도제작 선도기업으로 실시간 교통정보 API, 내비게이션 SDK 및 스마트맵 데이터를 공급합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 47.2,
+    "y": 30.5
+  },
+  {
+    "booth": "S20",
+    "name": "강원특별자치도",
+    "desc": "횡성 미래모빌리티 거점단지 및 도 전역 AI 교통 이음망을 통해 미래 모빌리티 생태계를 조성합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 53.2,
+    "y": 63.5
+  },
+  {
+    "booth": "S21",
+    "name": "엠클라비스(주)",
+    "desc": "고정식·이동식 단속 레이더 및 교통량 수집 센서를 자체 설계·생산하는 레이더 전문기업입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 53.2,
+    "y": 56.5
+  },
+  {
+    "booth": "S22",
+    "name": "포럼에이트 (FORUM8)",
+    "desc": "3D VR 주행 시뮬레이터 UC-win/Road 디지털 트윈 플랫폼 및 메타버스 F8VPS를 공급합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 53.2,
+    "y": 30.5
+  },
+  {
+    "booth": "S23",
+    "name": "주식회사 유디엔에스 (UDNS)",
+    "desc": "멀티센서·IoT 기반 고속축중(WIM), 스마트 자중계, 3D 라이다 차량 제원 측정 솔루션을 개발합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 58,
+    "y": 63.5
+  },
+  {
+    "booth": "S24_1",
+    "name": "(재)강원정보문화산업진흥원",
+    "desc": "강원 ICT 및 콘텐츠 산업 육성, 지역 특화 문화·데이터 산업 생태계 조성을 지원합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 58,
+    "y": 56.5
+  },
+  {
+    "booth": "S24_2",
+    "name": "(주)네이처아이티",
+    "desc": "공간정보·기상·AI 융합 지능형 영상분석으로 도로안전 및 재난대응 정보를 제공합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 58,
+    "y": 59
+  },
+  {
+    "booth": "S25, S26, S29, S30",
+    "name": "ITS Japan",
+    "desc": "일본 국토교통성, 토요타통상, 미쓰비시, 파나소닉, NEC 등 23개 기관·기업 합동 일본 국가관입니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 60,
+    "y": 26.5
+  },
+  {
+    "booth": "S27_1",
+    "name": "한국전자기술연구원 (KETI)",
+    "desc": "전자·IT 선도기술 개발 및 중소·중견기업 기술혁신을 지원하는 전문생산기술연구기관입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 62.5,
+    "y": 63.5
+  },
+  {
+    "booth": "S27_2",
+    "name": "㈜이지트래픽",
+    "desc": "긴급차량 우선신호, 스마트 교차로 실시간 신호제어, 디지털트윈 신호최적화 시스템을 공급합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 62.5,
+    "y": 66
+  },
+  {
+    "booth": "S28",
+    "name": "ITS Indonesia",
+    "desc": "인도네시아 신수도 누산타라 스마트시티 및 지속가능한 지능형 교통 생태계를 소개합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 62.5,
+    "y": 56.5
+  },
+  {
+    "booth": "S31",
+    "name": "한국교통안전공단 (TS)",
+    "desc": "자율주행차 K-City 실증단지 운영, 자동차 검사 및 교통안전 종합 공공기관입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 66.8,
+    "y": 63.5
+  },
+  {
+    "booth": "S32_1",
+    "name": "㈜뷰런테크놀로지",
+    "desc": "LiDAR 기반 인지 AI 기술로 스마트 인프라 공간 인지 솔루션 Lookout(GS 1등급)을 제공합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 66.8,
+    "y": 56.5
+  },
+  {
+    "booth": "S32_2",
+    "name": "주식회사 트레시스",
+    "desc": "차량신호등 보조장치 및 지주 일체형 태양광 가로등으로 에너지 자립 스마트 도로를 구축합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 66.8,
+    "y": 59
+  },
+  {
+    "booth": "S33, S34",
+    "name": "Honda Motor CO., Ltd.",
+    "desc": "혼다 센싱 360+ 및 협력형 안전 운전 지원 모빌리티 기술을 선보입니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 67.5,
+    "y": 26.5
+  },
+  {
+    "booth": "S35",
+    "name": "오토엘 주식회사 (AutoL)",
+    "desc": "특수 고감도 광학기술로 악천후 야외 환경에서도 안정 작동하는 소형 고성능 라이다를 개발합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 71.5,
+    "y": 63.5
+  },
+  {
+    "booth": "S36_1",
+    "name": "주식회사 아이디씨티",
+    "desc": "터널·지하 GPS 음영지역에서 연속 위성 신호를 제공하는 uGPS 시스템을 개발합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 71.5,
+    "y": 56.5
+  },
+  {
+    "booth": "S36_2",
+    "name": "(주)퀀텀하이텍",
+    "desc": "실주행 BMS 배터리 데이터 AI 분석 플랫폼 TRIZ-AI로 상태(SOH) 및 화재 위험을 예측합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 71.5,
+    "y": 59
+  },
+  {
+    "booth": "S37_1",
+    "name": "SAFRAN Syntony GNSS",
+    "desc": "SubWAVE 솔루션으로 터널, 지하철, 광산 내에 정밀 GPS 신호를 시뮬레이션 방사합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 72.5,
+    "y": 26.5
+  },
+  {
+    "booth": "S37_2",
+    "name": "(주)인투스페이스",
+    "desc": "한국항공우주연구원 연구소기업으로 SDR 기반 위성항법 신호 생성 및 터널 GPS PNT 솔루션을 개발합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 72.5,
+    "y": 29.5
+  },
+  {
+    "booth": "S38_1,3",
+    "name": "(주)엣지디엑스",
+    "desc": "현장 즉각 영상분석 차세대 VLM 기반 엣지 AI 관제 플랫폼으로 오감지 없는 스마트 안전망을 구축합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 72.5,
+    "y": 23.5
+  },
+  {
+    "booth": "S38_2",
+    "name": "(주)스튜디오갈릴레이",
+    "desc": "정교한 교통수요예측 및 시뮬레이션을 기반으로 하는 수요응답형 버스(DRT) 플랫폼을 제공합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 72.5,
+    "y": 21
+  },
+  {
+    "booth": "S38_4",
+    "name": "(주)선도소프트",
+    "desc": "GIS·공간빅데이터·디지털트윈 및 AI 기반 도시·교통 공간정보 전문기업입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 72.5,
+    "y": 24.5
+  },
+  {
+    "booth": "S39, S40",
+    "name": "씨욘드 (Seyond 레이튼)",
+    "desc": "글로벌 Top Tier 라이다(구 Innovusion) 국내 공식 공급사로 자율주행 Perception 센서를 제공합니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 23.5,
+    "y": 18
+  },
+  {
+    "booth": "S41",
+    "name": "smartmicro",
+    "desc": "독일 고성능 교통 레이더 센서 전문기업으로 전천후 교차로 및 고속도로 모니터링을 실현합니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 25.5,
+    "y": 18
+  },
+  {
+    "booth": "S42",
+    "name": "컴레이저 (주)",
+    "desc": "고정밀 레이저 기반 휴대용 과속단속 카메라 및 첨단 도로 교통 단속 장비 제조기업입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 27.5,
+    "y": 18
+  },
+  {
+    "booth": "S43",
+    "name": "(주)와이파이브",
+    "desc": "BLE, UWB, IMU 센서융합 기반 터널·실내 고정밀 협업측위 기술을 개발합니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 29.5,
+    "y": 18
+  },
+  {
+    "booth": "S44",
+    "name": "주식회사 엔유엘 (OUSTER)",
+    "desc": "미국 OUSTER 고해상도 디지털 플래시 라이다 센서 국내 공식 컨설팅 및 공급사입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 31.5,
+    "y": 18
+  },
+  {
+    "booth": "S45",
+    "name": "intobyte",
+    "desc": "싱가포르 CityMoS 도시 모빌리티 시뮬레이터 및 버스 차고지 디지털 트윈 플랫폼 기업입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 33.5,
+    "y": 18
+  },
+  {
+    "booth": "S46",
+    "name": "Miovision Technologies",
+    "desc": "20년 역사의 지능형 모빌리티 기업으로 도시 교통 혼잡 해결을 위한 스마트 교차로 툴을 제공합니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 35.5,
+    "y": 18
+  },
+  {
+    "booth": "S47",
+    "name": "(주)신성엔에스텍",
+    "desc": "공공 인프라 방재·보안·제어 시스템 및 미래형 스마트 시티 안전 솔루션 전문 기업입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 37.5,
+    "y": 18
+  },
+  {
+    "booth": "S48",
+    "name": "(주)서울로보틱스",
+    "desc": "AI 라이다 기반 3D 인지 소프트웨어 SENSR로 스마트 교차로 실시간 객체 추적을 지원합니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 39.5,
+    "y": 18
+  },
+  {
+    "booth": "S49",
+    "name": "Leishen Intelligent System (LSLiDAR)",
+    "desc": "풀시나리오 멀티라인 라이다 센서 및 자율주행 3D SLAM 무인 지게차 솔루션을 공급합니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 41.5,
+    "y": 18
+  },
+  {
+    "booth": "S50",
+    "name": "Traffic Technology International (TTi)",
+    "desc": "글로벌 고속도로·교통관리 인프라 의사결정권자 대상 세계 최고 권위 교통 전문 미디어입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 43.5,
+    "y": 18
+  },
+  {
+    "booth": "S51",
+    "name": "(주)영산글로넷",
+    "desc": "유럽·글로벌 네트워크 기반 자동차 피에조 센서 및 첨단 부품 무역·유통 기업입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 45.5,
+    "y": 18
+  },
+  {
+    "booth": "S52",
+    "name": "한국해외인프라도시개발지원공사 (KIND)",
+    "desc": "대한민국 정부 차원의 해외 투자개발사업(PPP) 진출 지원 및 해외 인프라 개발 전문 기관입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 47.5,
+    "y": 18
+  },
+  {
+    "booth": "S54",
+    "name": "Neuweb Pty Ltd",
+    "desc": "기존 CCTV를 99.3% 정확도 AI 실시간 교통 인텔리전스 및 신호연동 시스템으로 전환합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 58.5,
+    "y": 18
+  },
+  {
+    "booth": "S55",
+    "name": "International Road Federation (IRF)",
+    "desc": "1948년 설립된 제네바 본부 글로벌 도로연맹으로 안전하고 친환경적인 도로 시스템을 구축합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 60.5,
+    "y": 18
+  },
+  {
+    "booth": "S56",
+    "name": "(주)다리소프트",
+    "desc": "AI 도로 분석장치로 포트홀·균열 위험을 실시간 탐지하는 RiaaS 도로 정보 서비스를 제공합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 62.5,
+    "y": 18
+  },
+  {
+    "booth": "S57",
+    "name": "성풍솔레드(주)",
+    "desc": "스마트 횡단보도 LED 바닥형 보행신호등(조달청 혁신제품) 및 교통안전 시설물을 개발·시공합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 64.5,
+    "y": 18
+  },
+  {
+    "booth": "S58",
+    "name": "Zhengzhou Hengliang Tech",
+    "desc": "고속 동적 축중계(High speed WIM) 및 과적 단속, 교량 보호 교통 모니터링 시스템 기업입니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 66.5,
+    "y": 18
+  },
+  {
+    "booth": "S59",
+    "name": "엘비에스테크",
+    "desc": "보행약자를 위한 AI 보행 내비게이션 및 건물 접근성 데이터 기반 라스트마일 MaaS 기업입니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 68.5,
+    "y": 18
+  },
+  {
+    "booth": "S60",
+    "name": "에이브이지니어스",
+    "desc": "원격주행 차량 및 자율주행 로봇 인지·판단·제어 소프트웨어와 안전성 평가 서비스 기업입니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 70.5,
+    "y": 18
+  },
+  {
+    "booth": "S61",
+    "name": "주식회사 피카툰",
+    "desc": "NVIDIA Jetson 기반 엣지 AI 인텔리전트 박스로 교차로 위반 및 도로 순찰을 지원합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 72.5,
+    "y": 18
+  },
+  {
+    "booth": "S62",
+    "name": "Retro Tek",
+    "desc": "일반 주행속도에서 차선 전체 폭의 도로 표지 반사율을 비파괴 측정하는 동적 머신비전 시스템입니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 74.5,
+    "y": 18
+  },
+  {
+    "booth": "S63",
+    "name": "(주)와이테크",
+    "desc": "LTCC 고주파 세라믹 RF 부품(안테나, 필터) 전문기업으로 철도·위성·5G 무선통신에 적용됩니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 76.5,
+    "y": 18
+  },
+  {
+    "booth": "S64",
+    "name": "Intertraffic Worldwide Events",
+    "desc": "암스테르담 등 전 세계 유수 스마트 모빌리티 전시회를 주최하는 글로벌 교통 플랫폼입니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 78.5,
+    "y": 18
+  },
+  {
+    "booth": "S65",
+    "name": "7ITS新闻",
+    "desc": "중국 최대 지능형 교통(ITS) 미디어 및 싱크탱크 플랫폼으로 20만 팔로워 네트워크를 보유합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 80.5,
+    "y": 18
+  },
+  {
+    "booth": "S66",
+    "name": "Hexagon",
+    "desc": "정밀 측정·측위 및 자율주행 센싱 기술로 글로벌 모빌리티 산업 혁신을 뒷받침합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 82.5,
+    "y": 18
+  },
+  {
+    "booth": "S67",
+    "name": "(주)오스코",
+    "desc": "ITS, BIS, 자율주행 및 스마트시티 도시통합운영 전문 ICT 시스템통합(SI) 기업입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 77.2,
+    "y": 29.5
+  },
+  {
+    "booth": "S68_1",
+    "name": "(주)스마트레이더시스템",
+    "desc": "고해상도 4D 이미징 레이더로 악천후 속에서도 정확한 교통 모니터링과 속도 단속을 실현합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 77.2,
+    "y": 23.5
+  },
+  {
+    "booth": "S68_2",
+    "name": "Google (Google for Cities)",
+    "desc": "인공지능과 지리공간 플랫폼을 통해 도시 교통 최적화와 스마트시티 솔루션을 제공합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 78.5,
+    "y": 26.5
+  }
+];
+
+    // -------------------------------------------------------------------------
+    // 3. Data Store: ITS Korea News (Daily Crawled Feed from itskorea.kr?type=8)
+    // -------------------------------------------------------------------------
+    let itsKoreaNewsData = [
+  {
+    "fullTitle": "[회원사/동향] 모비젠, 국방 AX 거점 개소식 참석…온톨로지 기반 국방 AI 사업 확장",
+    "title": "모비젠, 국방 AX 거점 개소식 참석…온톨로지 기반 국방 AI 사업 확장",
+    "category": "회원사/동향",
+    "url": "https://itskorea.kr/boardDetail.do?type=8&idx=23781&currentPage=1&searchType=&searchText=",
+    "date": "2026-10-13",
+    "views": 52
+  },
+  {
+    "fullTitle": "[회원사/동향] 현대자동차, 30년 공들인 인도서 1000만대 신화 쓴다…연내대기록 달성 확실시",
+    "title": "현대자동차, 30년 공들인 인도서 1000만대 신화 쓴다…연내대기록 달성 확실시",
+    "category": "회원사/동향",
+    "url": "https://itskorea.kr/boardDetail.do?type=8&idx=23741&currentPage=1&searchType=&searchText=",
+    "date": "2026-10-12",
+    "views": 20
+  },
+  {
+    "fullTitle": "[회원사/동향] 노타 채명수 \"고사양 GPU 추가보다 기존 인프라 활용 대세\"",
+    "title": "노타 채명수 \"고사양 GPU 추가보다 기존 인프라 활용 대세\"",
+    "category": "회원사/동향",
+    "url": "https://itskorea.kr/boardDetail.do?type=8&idx=23739&currentPage=1&searchType=&searchText=",
+    "date": "2026-10-12",
+    "views": 15
+  },
+  {
+    "fullTitle": "[회원사/동향] 로봇은 일 배우고 집은 말 알아듣는다...롯데이노베이트, AX 전략 본격화한다",
+    "title": "로봇은 일 배우고 집은 말 알아듣는다...롯데이노베이트, AX 전략 본격화한다",
+    "category": "회원사/동향",
+    "url": "https://itskorea.kr/boardDetail.do?type=8&idx=23736&currentPage=1&searchType=&searchText=",
+    "date": "2026-10-12",
+    "views": 20
+  },
+  {
+    "fullTitle": "[회원사/동향] 롯데이노베이트 EVSIS, 기아멤버스 연계…블루·롯데멤버스 이은 세번째",
+    "title": "롯데이노베이트 EVSIS, 기아멤버스 연계…블루·롯데멤버스 이은 세번째",
+    "category": "회원사/동향",
+    "url": "https://itskorea.kr/boardDetail.do?type=8&idx=23786&currentPage=1&searchType=&searchText=",
+    "date": "2026-10-12",
+    "views": 99
+  },
+  {
+    "fullTitle": "[지자체] 경기도 올해 2회 추경 42조2053억원 도의회 통과…\"민생사업 지켰다\"",
+    "title": "경기도 올해 2회 추경 42조2053억원 도의회 통과…\"민생사업 지켰다\"",
+    "category": "지자체",
+    "url": "https://itskorea.kr/boardDetail.do?type=8&idx=23785&currentPage=1&searchType=&searchText=",
+    "date": "2026-10-13",
+    "views": 38
+  },
+  {
+    "fullTitle": "[지자체] 금천구·안양시, 경계지역 재난정보 제공 협력…전광판 공동 활용 검토",
+    "title": "금천구·안양시, 경계지역 재난정보 제공 협력…전광판 공동 활용 검토",
+    "category": "지자체",
+    "url": "https://itskorea.kr/boardDetail.do?type=8&idx=23784&currentPage=1&searchType=&searchText=",
+    "date": "2026-10-13",
+    "views": 33
+  },
+  {
+    "fullTitle": "[회원사/동향] 핀텔, 인천공항 지능형 영상분석시스템 구축 수주",
+    "title": "핀텔, 인천공항 지능형 영상분석시스템 구축 수주",
+    "category": "회원사/동향",
+    "url": "https://itskorea.kr/boardDetail.do?type=8&idx=23783&currentPage=1&searchType=&searchText=",
+    "date": "2026-10-13",
+    "views": 52
+  },
+  {
+    "fullTitle": "[산업부/보도자료] K-조선 모두의 힘으로, M.AX 상생항로 나선다",
+    "title": "K-조선 모두의 힘으로, M.AX 상생항로 나선다",
+    "category": "산업부/보도자료",
+    "url": "https://itskorea.kr/boardDetail.do?type=8&idx=23776&currentPage=1&searchType=&searchText=",
+    "date": "2026-10-13",
+    "views": 21
+  },
+  {
+    "fullTitle": "[과기부/보도자료] 피지컬 AI 기술·산업·정책·투자를 한자리에 「피지컬 AI Tech Week」 13일 개막",
+    "title": "피지컬 AI 기술·산업·정책·투자를 한자리에 「피지컬 AI Tech Week」 13일 개막",
+    "category": "과기부/보도자료",
+    "url": "https://itskorea.kr/boardDetail.do?type=8&idx=23775&currentPage=1&searchType=&searchText=",
+    "date": "2026-10-13",
+    "views": 23
+  },
+  {
+    "fullTitle": "[국토부/보도자료] 자율주행자동차 시범운행지구 지정 고시",
+    "title": "자율주행자동차 시범운행지구 지정 고시",
+    "category": "국토부/보도자료",
+    "url": "https://itskorea.kr/boardDetail.do?type=8&idx=23774&currentPage=1&searchType=&searchText=",
+    "date": "2026-10-13",
+    "views": 55
+  },
+  {
+    "fullTitle": "[지자체] 김우영 의원 “강릉 ITS 세계총회 성공 개최로 미래 산업 중심도시 도약”",
+    "title": "김우영 의원 “강릉 ITS 세계총회 성공 개최로 미래 산업 중심도시 도약”",
+    "category": "지자체",
+    "url": "https://itskorea.kr/boardDetail.do?type=8&idx=23754&currentPage=1&searchType=&searchText=",
+    "date": "2026-10-12",
+    "views": 84
+  },
+  {
+    "fullTitle": "[회원사/동향] 상장사 신사업 75.5% '에너지·모빌리티·AI'에 집중",
+    "title": "상장사 신사업 75.5% '에너지·모빌리티·AI'에 집중",
+    "category": "회원사/동향",
+    "url": "https://itskorea.kr/boardDetail.do?type=8&idx=23749&currentPage=1&searchType=&searchText=",
+    "date": "2026-10-12",
+    "views": 41
+  }
+];
+
+    // -------------------------------------------------------------------------
+    // 3. Data Store: Stores & Benefits (Crawled from Official Event Page 39)
+    // -------------------------------------------------------------------------
+        // -------------------------------------------------------------------------
+    // Attractions Dataset (Parsed from Official Event Page map=38)
+    // -------------------------------------------------------------------------
+    const attractionsData = [
+  {
+    "title": "강릉커피축제",
+    "thumb": "https://admin.o2meet-g.kr/data/editor/20260902173543ec4aa3a3-cf6e-402b-9965-9c173488d7de.jpg",
+    "periodLocation": "10월 21일~25일 / 강릉커피거리(안목해변)",
+    "intro": "강릉시 전역에서 열리는 대표적인 커피 문화 축제로, 강릉의 다양한 카페들이 참여하여 강릉만의 커피문화를 경험할 수 있습니다.",
+    "etc": "행사장(안목해변) 총회셔틀버스 운영, 세계총회와 연계한 스탬프 이벤트 진행",
+    "link": "https://www.coffeefestival.net/",
+    "gallery": []
+  },
+  {
+    "title": "강릉누들축제",
+    "thumb": "https://admin.o2meet-g.kr/data/editor/20260902173552bc18ad67-8273-46ef-aabd-7fcb21996d63.jpg",
+    "periodLocation": "10월 15일~18일 / 강릉월화거리",
+    "intro": "강릉의 대표적인 국수요리들을 한자리에서 맛볼 수 있는 푸드페스티벌입니다.",
+    "etc": "행사장(강릉월화거리) 총회셔틀버스 운영",
+    "link": "",
+    "gallery": []
+  },
+  {
+    "title": "하슬라국제예술제",
+    "thumb": "https://admin.o2meet-g.kr/data/editor/202609021735579dc19c79-cf7f-4bc0-9d89-1f35cb6289f2.jpg",
+    "periodLocation": "10월 16일~25일 / 강릉아트센터 및 강릉일대",
+    "intro": "음악을 비롯하여 다양한 예술 장르를 아우르는 종합 예술 페스티벌입니다.",
+    "etc": "세부 프로그램 참조 (일부 예매 필요)",
+    "link": "https://hasla.or.kr/",
+    "gallery": []
+  },
+  {
+    "title": "강릉월화거리야시장",
+    "thumb": "https://admin.o2meet-g.kr/data/editor/202609021736157de56a3d-cf9e-4ad8-b8fc-561491a2484f.jpg",
+    "periodLocation": "10월 22일~24일 18시~23시 / 강릉월화거리",
+    "intro": "폐철도길을 활용해 조성된 도심 속 공원에서 운영되는 야시장으로, 지역 특산물을 활용한 다양한 먹거리와 수공예품 마켓이 마련되어 있습니다.",
+    "etc": "강릉월화거리 총회셔틀버스 운영",
+    "link": "",
+    "gallery": []
+  },
+  {
+    "title": "솔향수목원",
+    "thumb": "https://admin.o2meet-g.kr/data/editor/2026090314295929981531-db4c-4647-933d-a4efd2cfe14c.jpg",
+    "periodLocation": "매일 9시~23시 *월요일휴무 / 강릉시 구정면 수목원길 156",
+    "intro": "울창한 금강소나무 군락을 중심으로 조성된 자연 생태 공간으로 맑은 계곡을 따라 다양한 산책로가 조성되어 있습니다. 매일 23시까지 야간에도 운영중입니다.",
+    "etc": "",
+    "link": "https://www.gn.go.kr/solhyang/index.do",
+    "gallery": []
+  },
+  {
+    "title": "강릉메타버스체험관",
+    "thumb": "https://admin.o2meet-g.kr/data/editor/2026090314301697553183-423d-48d9-a3f3-fa08de0e43d9.jpg",
+    "periodLocation": "",
+    "intro": "가상현실(VR)과 증강현실(AR) 등 첨단 디지털 기술을 직접 경험해볼 수 있는 실감형 전시공간으로 동계 스포츠를 비롯한 다채로운 테마의 시뮬레이터와 인터랙티브 미디어 콘텐츠를 즐길 수 있습니다.",
+    "etc": "*총회참가자 무료(비표지참)",
+    "link": "https://www.gnmetaverse.or.kr",
+    "gallery": []
+  },
+  {
+    "title": "오죽헌 전통뱃놀이 프로그램",
+    "thumb": "https://admin.o2meet-g.kr/data/editor/20260903143120df80eafa-b4d5-4393-ac2f-142f90c1f079.jpg",
+    "periodLocation": "매일 13시~ 20시 / 강릉시 죽헌동 754",
+    "intro": "경포생태저류지의 풍경을 배를 타고 즐길 수 있는 곳",
+    "etc": "*당일 12시부터 선착순예매",
+    "link": "https://gncoffeeboat.notion.site/",
+    "gallery": []
+  },
+  {
+    "title": "하슬라 이머시브 아트쇼",
+    "thumb": "https://admin.o2meet-g.kr/data/editor/202609031432190ac6ed6d-f06c-42d0-a760-75293dcf0625.jpg",
+    "periodLocation": "매일 20시,20시30분,21시 / 강릉시 초당동 474-4(허균허난설헌기념공원인근)",
+    "intro": "빛과 소리, 영상을 활용해 공간 전체를 예술작품으로 연출한 몰입형 미디어 아트 전시. 강릉의 자연경관과 현대 미술을 융합한 다채로운 시각적 요소를 활용하여 관람객이 직접 작품 내부로 들어가서 감상하는 형태입니다.",
+    "etc": "*러닝타임30분",
+    "link": "",
+    "gallery": []
+  },
+  {
+    "title": "컬링·요트 체험",
+    "thumb": "https://admin.o2meet-g.kr/data/editor/2026090314323993e45056-e18c-48a3-8033-52a149d687f0.jpg",
+    "periodLocation": "매일 20시,20시30분,21시 / 강릉시 초당동 474-4(허균허난설헌기념공원인근)",
+    "intro": "올림픽 종목인 컬링과, 해양레포츠인 요트를 체험할 수 있는 프로그램입니다.",
+    "etc": "*예약방법: 온라인예약",
+    "link": "https://www.gnsportsclub.com/home",
+    "gallery": []
+  },
+  {
+    "title": "강릉시립미술관 솔올 「화가 김종학」",
+    "thumb": "https://admin.o2meet-g.kr/data/editor/202609031433108d631a23-a38b-4024-bab2-fc329bc3c811.jpg",
+    "periodLocation": "7월22일~10월25일 / 강릉시 원대로 45, 강릉시립미술관 솔올 *월요일휴무",
+    "intro": "자연의 생명력을 대담한 색채와 필치로 표현한 김종학 화백의 특별 기획 전시. 미공개 드로잉작품을 비롯하여 작가의 작업실을 재현한 공간도 조성되어 작품세계 전반을 들여다 볼수 있습니다.",
+    "etc": "*관람료: 1만원",
+    "link": "https://www.gn.go.kr/mu/index.do",
+    "gallery": []
+  },
+  {
+    "title": "오죽헌 시립박물관 특별전시 「한 장의 종이, 한 사람의 인생: 조선의 과거제아 교지 이야기」",
+    "thumb": "https://admin.o2meet-g.kr/data/editor/20260903143318130569de-fc03-48ac-95f7-93486f1da2a3.jpg",
+    "periodLocation": "8월14일~11월15일 / 강릉시 율곡로3139번길 24, 화폐전시관 *월요일휴무",
+    "intro": "조선시대 과거제도와 교지(왕의 명령을 담은 문서)와 관련된 특별 전시. 천자문, 논어 등의 고서와 실제 과거 시험 답안지, 합격증서 교지 등의 유물을 전시합니다.",
+    "etc": "",
+    "link": "",
+    "gallery": []
+  }
+];
+
+// -------------------------------------------------------------------------
+    // Stores Dataset (19 Official Stores Parsed from Event Page map=39)
+    // -------------------------------------------------------------------------
+    const storeData = [
+  {
+    "category": "food",
+    "name": "김윤미 전복삼계탕",
+    "desc": "전복삼계탕과 다양한 보양식을 즐기는 삼계탕 전문점",
+    "benefit": "테이블당 음료수 2개 제공",
+    "mapUrl": "https://maps.app.goo.gl/kWmVmVVfmKcJ2NGA9",
+    "img": "https://admin.o2meet-g.kr/data/editor/20261008152858fcb3a9ec-737f-4870-97c5-2836a6be48be.jpg",
+    "categoryName": "음식"
+  },
+  {
+    "category": "food",
+    "name": "날밀보리뜰",
+    "desc": "나물과 보리밥을 즐기는 강릉 보리밥 전문점",
+    "benefit": "테이블당 음료수 1개 제공",
+    "mapUrl": "https://maps.app.goo.gl/BLMZoGkNgGzbDSrRA",
+    "img": "https://admin.o2meet-g.kr/data/editor/2026100815295710df22d9-ff9a-40ac-af40-c352bd83bc10.jpg",
+    "categoryName": "음식"
+  },
+  {
+    "category": "food",
+    "name": "솔담",
+    "desc": "강릉의 식재료로 차린 한식과 연잎밥, 나물밥을 즐기는 향토음식점",
+    "benefit": "전체 메뉴 5% 할인",
+    "mapUrl": "https://maps.app.goo.gl/nSdYNDv2Bk5sE6Ui9",
+    "img": "https://admin.o2meet-g.kr/data/editor/202610081530049353a562-ebca-46cc-9b46-e76ce171ae10.jpg",
+    "categoryName": "음식"
+  },
+  {
+    "category": "food",
+    "name": "신리면옥 강릉점",
+    "desc": "회비빔막국수, 물막국수, 냉면과 수육을 즐기는 막국수 전문점",
+    "benefit": "테이블당 찐만두 제공",
+    "mapUrl": "https://maps.app.goo.gl/V4tPS1kGqK5uM6yW9",
+    "img": "https://admin.o2meet-g.kr/data/editor/20261008153008bddc947f-d8b7-487a-85f2-9e7260d150f7.jpg",
+    "categoryName": "음식"
+  },
+  {
+    "category": "food",
+    "name": "예당",
+    "desc": "국내산 암꽃게 간장게장과 정갈한 솥밥을 즐기는 한식당",
+    "benefit": "2인 기준 양념게장 반마리(2pc) 제공",
+    "mapUrl": "https://maps.app.goo.gl/yoJgcxHpGCmCKSmC9",
+    "img": "https://admin.o2meet-g.kr/data/editor/2026100815301695dc0dfe-2027-4952-ae11-313bb69e49c0.jpg",
+    "categoryName": "음식"
+  },
+  {
+    "category": "food",
+    "name": "영진횟집",
+    "desc": "영진해변 앞 신선한 회와 해산물을 즐기는 횟집",
+    "benefit": "전체 메뉴 5% 할인",
+    "mapUrl": "https://maps.app.goo.gl/pNVHW3LAqAAjn5qA7",
+    "img": "https://admin.o2meet-g.kr/data/editor/202610081530254127d051-2e35-4465-afb8-bc351e183605.jpg",
+    "categoryName": "음식"
+  },
+  {
+    "category": "food",
+    "name": "이주환 전통한우",
+    "desc": "한우 숯불구이와 진한 한우갈비탕을 즐기는 강릉 한우 전문점",
+    "benefit": "테이블당 음료수 1개 제공",
+    "mapUrl": "https://maps.app.goo.gl/o8EcWQHSiKfNyWMV6",
+    "img": "https://admin.o2meet-g.kr/data/editor/20261008153033ac311fa6-4e18-45ad-89f5-7458748bfe3b.jpg",
+    "categoryName": "음식"
+  },
+  {
+    "category": "food",
+    "name": "죽방전집",
+    "desc": "강릉식 전과 다양한 안주를 즐기는 전집",
+    "benefit": "전체 메뉴 10% 할인",
+    "mapUrl": "https://naver.me/xslHnYgG",
+    "img": "https://admin.o2meet-g.kr/data/editor/2026100815304183b72bab-0198-47d5-83d7-56db91fc7e54.jpg",
+    "categoryName": "음식"
+  },
+  {
+    "category": "food",
+    "name": "짬뽕순두부 동화가든",
+    "desc": "초당순두부와 얼큰한 짬뽕 국물의 조화, 강릉 대표 순두부 맛집",
+    "benefit": "디저트(커피 젤라또 떡) 15% 할인",
+    "mapUrl": "https://maps.app.goo.gl/UTNupgSbWPiSj1zz8",
+    "img": "https://admin.o2meet-g.kr/data/editor/2026100815304892f6abe5-89e0-4eb7-91c0-e2fc9f37b876.jpg",
+    "categoryName": "음식"
+  },
+  {
+    "category": "food",
+    "name": "번패티번 강릉 DT",
+    "desc": "유기농 브리오슈 번과 프리미엄 비프 패티로 만든 수제버거 전문점",
+    "benefit": "아메리카노(Hot/Ice) 무료 제공",
+    "mapUrl": "https://maps.app.goo.gl/QAvWFwYH2P2h2sEd6",
+    "img": "https://admin.o2meet-g.kr/data/editor/2026100815305553c9670c-2fc8-4ab3-9877-5add471f1e95.jpg",
+    "categoryName": "음식"
+  },
+  {
+    "category": "food",
+    "name": "자스민 레스토랑",
+    "desc": "돈까스, 스테이크, 파스타, 피자 등 다양한 양식메뉴를 즐기는 강릉 레스토랑",
+    "benefit": "테이블당 음료수 1개 제공",
+    "mapUrl": "https://maps.app.goo.gl/MsXYVMwUnZKDLqGx7",
+    "img": "https://admin.o2meet-g.kr/data/editor/2026100815310376934a4e-f591-4997-86bf-63ea48c60618.jpg",
+    "categoryName": "음식"
+  },
+  {
+    "category": "cafe",
+    "name": "가배초당",
+    "desc": "초당 순두부를 활용한 이색 음료와 디저트를 즐기는 강릉 카페",
+    "benefit": "10,000원 이상 주문 시 가배만쥬 또는 강릉단오빵 1개 무료",
+    "mapUrl": "https://maps.app.goo.gl/rMa2B5kfhfmfRZZYA",
+    "img": "https://admin.o2meet-g.kr/data/editor/2026100815313933c237e8-5726-44d1-8eb2-73a5dc942257.jpg",
+    "categoryName": "카페"
+  },
+  {
+    "category": "cafe",
+    "name": "도랑커피로스터스",
+    "desc": "대관령 숲과 도랑을 곁에 둔 로스터리 카페",
+    "benefit": "제조 음료 10% 할인",
+    "mapUrl": "https://maps.app.goo.gl/tTCEiSS6uqgDBMpF8",
+    "img": "https://admin.o2meet-g.kr/data/editor/20261008153149f84bd28d-0bc1-4af8-8d51-057111b5944c.jpg",
+    "categoryName": "카페"
+  },
+  {
+    "category": "cafe",
+    "name": "브라운듀",
+    "desc": "직접 로스팅한 원두와 정성스러운 핸드드립을 즐기는 주문진 로스터리 카페",
+    "benefit": "지도 보기",
+    "mapUrl": "https://maps.app.goo.gl/iirzjspCZtzdD15Y6",
+    "img": "https://admin.o2meet-g.kr/data/editor/202610081532040b472e29-fcde-4296-aa31-604b2bb3b0a3.jpg",
+    "categoryName": "카페"
+  },
+  {
+    "category": "cafe",
+    "name": "엔드투앤드",
+    "desc": "강문해변 인근 소나무 숲과 정원을 품은 대형 카페",
+    "benefit": "전체 메뉴 10% 할인",
+    "mapUrl": "https://maps.app.goo.gl/zSzww1SFwc6GcrFF8",
+    "img": "https://admin.o2meet-g.kr/data/editor/2026100815321213e8c1e2-2d43-406a-bd8b-1e51e11df5c4.jpg",
+    "categoryName": "카페"
+  },
+  {
+    "category": "cafe",
+    "name": "여섯 개의 달",
+    "desc": "강릉을 담은 티룸. 차, 말차, 찰옥수수 음료",
+    "benefit": "궁중음식 다식 무료 제공",
+    "mapUrl": "https://maps.app.goo.gl/pzLoZ5HSy5fkKgoX8",
+    "img": "https://admin.o2meet-g.kr/data/editor/202610081532213508ef4f-30d1-4ac5-b260-ec76237460aa.jpg",
+    "categoryName": "카페"
+  },
+  {
+    "category": "cafe",
+    "name": "트리고 강릉점",
+    "desc": "메밀 시그니처 음료와 베이커리를 만나는 카페",
+    "benefit": "전체 메뉴 10% 할인",
+    "mapUrl": "https://naver.me/FCZJwl52",
+    "img": "https://admin.o2meet-g.kr/data/editor/202610081532297ed21d10-7392-4e48-9db4-17f23b507091.jpg",
+    "categoryName": "카페"
+  },
+  {
+    "category": "dessert",
+    "name": "베이커리 가루",
+    "desc": "다양한 베이커리와 디저트, 대표 메뉴 &#39;원준이엉덩이빵&#39;을 만나는 베이커리",
+    "benefit": "대표 메뉴 3종 5% 할인",
+    "mapUrl": "https://maps.app.goo.gl/dSP68meU2dx735Jd9",
+    "img": "https://admin.o2meet-g.kr/data/editor/20261008153119a105e4f1-7c51-44c7-8b32-e46feea680ca.jpg",
+    "categoryName": "디저트"
+  },
+  {
+    "category": "dessert",
+    "name": "초당콩작소",
+    "desc": "초당의 콩&middot;두부&middot;비지로 담백한 디저트를 만드는 강릉 로컬 브랜드",
+    "benefit": "10,000원 이상 주문 시 쿠키 1개 무료",
+    "mapUrl": "https://maps.app.goo.gl/crekQ2F2SEAoqneQ9",
+    "img": "https://admin.o2meet-g.kr/data/editor/20261008153130393d2221-4979-4744-b6e5-bab232be2499.jpg",
+    "categoryName": "디저트"
+  }
+];
+
+    // -------------------------------------------------------------------------
+    // 4. Render Engine: Schedule
+    // -------------------------------------------------------------------------
+    let currentSelectedDay = 0;
+    let currentSelectedVenue = "all";
+
+    function renderSchedule() {
+      const container = document.getElementById("scheduleTimeline");
+      container.innerHTML = "";
+
+      const filtered = scheduleData.filter(item => {
+        const dayMatch = (currentSelectedDay === 0) ? (item.day === 0) : (item.day === currentSelectedDay);
+        const venueMatch = (currentSelectedVenue === "all") || (item.venue === currentSelectedVenue);
+        return dayMatch && venueMatch;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="py-12 text-center text-slate-500 text-xs">
+            <i data-lucide="calendar-x" class="w-8 h-8 mx-auto mb-2 opacity-50"></i>
+            선택한 조건에 해당하는 세션 일정이 없습니다.
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      filtered.forEach(item => {
+        let catColor = "bg-emerald-500/10 text-emerald-400 border-emerald-500/20";
+        if (item.category === "공식") catColor = "bg-rose-500/10 text-rose-400 border-rose-500/20";
+        if (item.category === "회의") catColor = "bg-cyan-500/10 text-cyan-400 border-cyan-500/20";
+        if (item.category === "사교") catColor = "bg-amber-500/10 text-amber-400 border-amber-500/20";
+        if (item.category === "전시") catColor = "bg-purple-500/10 text-purple-400 border-purple-500/20";
+
+        const card = document.createElement("div");
+        card.className = "bg-its-card rounded-2xl p-3.5 border border-slate-800/80 shadow-md hover:border-slate-700 transition";
+        card.innerHTML = `
+          <div class="flex items-center justify-between text-[11px] mb-1.5">
+            <span class="font-mono font-bold text-its-accent flex items-center gap-1.5">
+              <i data-lucide="clock" class="w-3.5 h-3.5"></i> ${item.time}
+            </span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold border ${catColor}">
+              ${item.category}
+            </span>
+          </div>
+          <h4 class="text-xs font-bold text-slate-100 leading-snug">${item.title}</h4>
+          <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">${item.desc}</p>
+        `;
+        container.appendChild(card);
+      });
+      lucide.createIcons();
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. Render Engine: Booth Directory & ITS Korea Crawled News Feed
+    // -------------------------------------------------------------------------
+    let currentBoothZone = "all";
+    let boothSearchKeyword = "";
+    let activeBoothCode = null;
+
+    function renderBoothDirectory() {
+      const container = document.getElementById("boothListContainer");
+      if (!container) return;
+      container.innerHTML = "";
+
+      const filtered = exhibitorBoothsData.filter(item => {
+        // Zone filter
+        let zoneMatch = (currentBoothZone === "all");
+        if (currentBoothZone === "Zone 1") zoneMatch = (item.zone === "Zone 1");
+        if (currentBoothZone === "Zone 2") zoneMatch = (item.zone === "Zone 2");
+        if (currentBoothZone === "Premium") zoneMatch = (item.type === "Premium");
+
+        // Keyword filter
+        let kwMatch = true;
+        if (boothSearchKeyword.trim()) {
+          const q = boothSearchKeyword.trim().toLowerCase();
+          kwMatch = item.booth.toLowerCase().includes(q) ||
+                    item.name.toLowerCase().includes(q) ||
+                    (item.desc && item.desc.toLowerCase().includes(q));
+        }
+        return zoneMatch && kwMatch;
+      });
+
+      const badge = document.getElementById("boothCountBadge");
+      if (badge) badge.innerText = `${filtered.length}개 부스`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="py-8 text-center text-slate-500 text-xs">
+            <i data-lucide="building-2" class="w-7 h-7 mx-auto mb-1.5 opacity-40"></i>
+            일치하는 부스 또는 기업이 없습니다.
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      filtered.forEach(item => {
+        const isActive = (item.booth === activeBoothCode);
+        const row = document.createElement("div");
+        row.className = `booth-item-card flex items-center justify-between p-2.5 rounded-xl transition cursor-pointer ${
+          isActive 
+            ? "bg-slate-800/90 border border-cyan-400 ring-1 ring-cyan-400/50" 
+            : "bg-slate-900/90 border border-slate-800/80 hover:border-emerald-500/40"
+        }`;
+        row.setAttribute("data-booth-id", item.booth);
+        row.innerHTML = `
+          <div class="flex items-center gap-2.5 min-w-0 pr-2">
+            <span class="px-2 py-1 rounded-lg bg-emerald-500/20 text-its-accent font-mono font-bold text-xs shrink-0 border border-emerald-500/30">
+              ${item.booth}
+            </span>
+            <div class="truncate">
+              <h4 class="text-xs font-bold text-slate-100 truncate">${item.name}</h4>
+              <p class="text-[10px] text-slate-400 truncate">${item.desc}</p>
+            </div>
+          </div>
+          <div class="flex items-center shrink-0">
+            <button class="booth-locate-btn px-2.5 py-1.5 rounded-lg bg-cyan-950/80 hover:bg-cyan-900/90 text-cyan-300 text-[11px] font-bold border border-cyan-500/40 flex items-center gap-1 shadow-sm transition active:scale-95" 
+                    data-booth="${item.booth}">
+              <i data-lucide="navigation" class="w-3 h-3 text-cyan-400"></i> 길찾기
+            </button>
+          </div>
+        `;
+
+        // Click to trigger wayfinding
+        row.querySelector(".booth-locate-btn").onclick = (e) => {
+          e.stopPropagation();
+          locateBoothOnMap(item.booth);
+        };
+        row.onclick = () => {
+          locateBoothOnMap(item.booth);
+        };
+
+        container.appendChild(row);
+      });
+      lucide.createIcons();
+    }
+
+    function locateBoothOnMap(boothCode) {
+      activeBoothCode = boothCode;
+      const booth = exhibitorBoothsData.find(b => b.booth === boothCode);
+      if (!booth) return;
+
+      const highlightBox = document.getElementById("boothHighlightBox");
+      const highlightLabel = document.getElementById("highlightBoothLabel");
+      const entranceMarker = document.getElementById("entranceMarker");
+      const routeSvg = document.getElementById("routeSvg");
+      const routePath = document.getElementById("routePath");
+      const navBanner = document.getElementById("navigationBanner");
+      const navTargetName = document.getElementById("navTargetName");
+      const statusText = document.getElementById("mapStatusText");
+
+      // Position highlight box
+      if (highlightBox && highlightLabel) {
+        highlightBox.style.display = "block";
+        highlightBox.style.left = `${booth.x}%`;
+        highlightBox.style.top = `${booth.y}%`;
+        highlightLabel.innerText = booth.booth;
+      }
+
+      // Show entrance marker
+      if (entranceMarker) {
+        entranceMarker.style.display = "flex";
+      }
+
+      // Draw wayfinding route: from entrance (13, 92) to booth (booth.x, booth.y)
+      if (routeSvg && routePath) {
+        routeSvg.style.display = "block";
+        const startX = 13;
+        const startY = 92;
+        const endX = booth.x;
+        const endY = booth.y;
+        // Navigation route via aisle corridor
+        const aisleY = 74;
+        routePath.setAttribute("d", `M ${startX} ${startY} L ${startX} ${aisleY} L ${endX} ${aisleY} L ${endX} ${endY}`);
+      }
+
+      // Show navigation banner
+      if (navBanner && navTargetName) {
+        navBanner.style.display = "flex";
+        navTargetName.innerHTML = `<span class="text-cyan-400 font-mono font-bold">[${booth.booth}]</span> ${booth.name}`;
+      }
+
+      if (statusText) {
+        statusText.innerHTML = `<span class="text-emerald-400 font-semibold">[${booth.booth} ${booth.name}]</span> 위치 강조 중`;
+      }
+
+      // Highlight active row in list
+      document.querySelectorAll(".booth-item-card").forEach(row => {
+        if (row.getAttribute("data-booth-id") === booth.booth) {
+          row.classList.add("bg-slate-800/90", "border-cyan-400", "ring-1", "ring-cyan-400/50");
+          row.classList.remove("bg-slate-900/90", "border-slate-800/80");
+        } else {
+          row.classList.remove("bg-slate-800/90", "border-cyan-400", "ring-1", "ring-cyan-400/50");
+          row.classList.add("bg-slate-900/90", "border-slate-800/80");
+        }
+      });
+
+      // Smooth scroll viewport into view
+      const viewport = document.getElementById("mapViewport");
+      if (viewport) {
+        viewport.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    }
+
+    function resetWayfinding() {
+      activeBoothCode = null;
+      const highlightBox = document.getElementById("boothHighlightBox");
+      const entranceMarker = document.getElementById("entranceMarker");
+      const routeSvg = document.getElementById("routeSvg");
+      const navBanner = document.getElementById("navigationBanner");
+      const statusText = document.getElementById("mapStatusText");
+
+      if (highlightBox) highlightBox.style.display = "none";
+      if (entranceMarker) entranceMarker.style.display = "none";
+      if (routeSvg) routeSvg.style.display = "none";
+      if (navBanner) navBanner.style.display = "none";
+      if (statusText) statusText.innerText = "아래 리스트에서 [길찾기]를 터치하면 위치가 강조됩니다";
+
+      document.querySelectorAll(".booth-item-card").forEach(row => {
+        row.classList.remove("bg-slate-800/90", "border-cyan-400", "ring-1", "ring-cyan-400/50");
+        row.classList.add("bg-slate-900/90", "border-slate-800/80");
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // Toast Notification Utility
+    // -------------------------------------------------------------------------
+    function showToast(msg) {
+      const toast = document.getElementById("appToast");
+      const toastMsg = document.getElementById("appToastMsg");
+      if (!toast || !toastMsg) return;
+      toastMsg.innerText = msg;
+      toast.classList.remove("opacity-0", "pointer-events-none");
+      setTimeout(() => {
+        toast.classList.add("opacity-0", "pointer-events-none");
+      }, 2300);
+    }
+
+    // -------------------------------------------------------------------------
+    // In-App Modal / Viewer Controller (Prevents Leaving App)
+    // -------------------------------------------------------------------------
+    function openInAppModal({ title, subtitle, contentHtml, externalUrl }) {
+      const modal = document.getElementById("inAppBrowserModal");
+      const titleEl = document.getElementById("inAppModalTitle");
+      const subEl = document.getElementById("inAppModalSubtitle");
+      const bodyEl = document.getElementById("inAppModalBody");
+      const extBtn = document.getElementById("inAppExternalLinkBtn");
+
+      if (!modal) return;
+      if (titleEl) titleEl.innerText = title || "상세 정보";
+      if (subEl) subEl.innerText = subtitle || "2026 ITS World Congress";
+      if (bodyEl) bodyEl.innerHTML = contentHtml || "";
+
+      if (extBtn) {
+        if (externalUrl) {
+          extBtn.href = externalUrl;
+          extBtn.classList.remove("hidden");
+        } else {
+          extBtn.classList.add("hidden");
+        }
+      }
+
+      modal.classList.remove("hidden");
+      lucide.createIcons();
+    }
+
+    function closeInAppModal() {
+      const modal = document.getElementById("inAppBrowserModal");
+      if (modal) modal.classList.add("hidden");
+    }
+
+    // -------------------------------------------------------------------------
+    // ITS Korea News Rendering Engine (With In-App Reader)
+    // -------------------------------------------------------------------------
+    let currentNewsFilter = "all";
+
+    function renderItsKoreaNews() {
+      const feed = document.getElementById("companyNewsFeed");
+      if (!feed) return;
+      feed.innerHTML = "";
+
+      const filtered = itsKoreaNewsData.filter(item => {
+        if (currentNewsFilter === "all") return true;
+        if (currentNewsFilter === "보도자료") {
+          return item.category.includes("보도자료") || item.category.includes("산업부") || item.category.includes("과기부") || item.category.includes("국토부");
+        }
+        return item.category === currentNewsFilter;
+      });
+
+      if (filtered.length === 0) {
+        feed.innerHTML = `
+          <div class="py-8 text-center text-slate-500 text-xs">
+            해당 카테고리의 최신 뉴스가 없습니다.
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach((item, idx) => {
+        let tagColor = "bg-emerald-500/10 text-emerald-400 border-emerald-500/20";
+        if (item.category === "지자체") tagColor = "bg-amber-500/10 text-amber-400 border-amber-500/20";
+        if (item.category.includes("보도자료")) tagColor = "bg-cyan-500/10 text-cyan-400 border-cyan-500/20";
+
+        const card = document.createElement("article");
+        card.className = "news-card bg-slate-900/90 rounded-2xl p-3.5 border border-slate-800 space-y-2 cursor-pointer hover:border-slate-700 transition";
+        card.innerHTML = `
+          <div class="flex items-center justify-between text-[11px]">
+            <div class="flex items-center gap-1.5">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold border ${tagColor}">
+                ${item.category}
+              </span>
+              <span class="text-[10px] text-slate-500 font-medium">ITS Korea</span>
+            </div>
+            <span class="text-[10px] text-slate-400 font-mono flex items-center gap-1">
+              <i data-lucide="calendar" class="w-2.5 h-2.5 text-slate-500"></i> ${item.date}
+            </span>
+          </div>
+          <h4 class="text-xs font-bold text-slate-100 leading-snug hover:text-its-accent transition">
+            ${item.title}
+          </h4>
+          <div class="flex items-center justify-between pt-1 border-t border-slate-800/80 text-[10px] text-slate-400">
+            <span class="text-slate-400 flex items-center gap-1 font-mono">
+              <i data-lucide="eye" class="w-3 h-3 text-cyan-400"></i> 조회 ${item.views}회
+            </span>
+            <span class="text-its-accent flex items-center gap-0.5 font-medium hover:underline">
+              앱에서 읽기 <i data-lucide="chevron-right" class="w-3 h-3"></i>
+            </span>
+          </div>
+        `;
+
+        // Open news inside In-App Modal rather than redirecting away
+        card.onclick = () => {
+          openNewsInAppModal(item);
+        };
+
+        feed.appendChild(card);
+      });
+      lucide.createIcons();
+    }
+
+    function openNewsInAppModal(newsItem) {
+      openInAppModal({
+        title: newsItem.title,
+        subtitle: `ITS Korea 공식 뉴스 (${newsItem.date})`,
+        contentHtml: `
+          <div class="space-y-4">
+            <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  ${newsItem.category}
+                </span>
+                <span class="text-[11px] text-slate-400 font-mono">${newsItem.date}</span>
+              </div>
+              <h3 class="text-sm font-bold text-white leading-snug">${newsItem.title}</h3>
+              <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-800">
+                <span class="flex items-center gap-1 font-mono">
+                  <i data-lucide="eye" class="w-3.5 h-3.5 text-cyan-400"></i> 조회 ${newsItem.views}회
+                </span>
+                <span class="text-slate-400">출처: ITS Korea</span>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3 text-xs text-slate-300 leading-relaxed">
+              <h4 class="font-bold text-white flex items-center gap-1.5 text-xs">
+                <i data-lucide="newspaper" class="w-4 h-4 text-cyan-400"></i> 기사 안내
+              </h4>
+              <p>
+                본 기사는 <strong>ITS Korea 공식 정보 포털</strong>에 등록된 최신 지능형교통체계 및 회원사 주요 산업동향입니다.
+              </p>
+              <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-[11px] text-slate-400">
+                <p>※ 외부 포털 보안 정책에 따라 원문 페이지는 아래 버튼으로 열람 가능하며, 좌측 상단 <strong>[← 앱으로 돌아가기]</strong> 버튼으로 언제든지 총회 가이드북 화면으로 복귀하실 수 있습니다.</p>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <a href="${newsItem.url}" target="_blank" rel="noopener" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-its-primary to-cyan-600 hover:from-emerald-600 hover:to-teal-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/60 transition active:scale-95">
+                <span>ITS Korea 원문 전문 보기</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        `,
+        externalUrl: newsItem.url
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. Render Engine: Attractions (What's On 11선, map=38)
+    // -------------------------------------------------------------------------
+    function renderAttractions() {
+      const container = document.getElementById("attractionsListContainer");
+      if (!container) return;
+      container.innerHTML = "";
+
+      attractionsData.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "attraction-card bg-its-card rounded-2xl border border-slate-800 overflow-hidden hover:border-cyan-500/40 transition cursor-pointer flex flex-col";
+        
+        const thumbHtml = item.thumb ? `
+          <div class="relative w-full h-[125px] bg-slate-950 overflow-hidden">
+            <img src="${item.thumb}" alt="${item.title}" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+            <div class="absolute bottom-2 left-3 right-3 flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded-md bg-cyan-950/90 text-cyan-300 font-bold text-[10px] border border-cyan-800">
+                강릉 축제·관광
+              </span>
+            </div>
+          </div>
+        ` : '';
+
+        card.innerHTML = `
+          ${thumbHtml}
+          <div class="p-3.5 space-y-2">
+            <div>
+              <h4 class="text-xs font-bold text-white">${item.title}</h4>
+              ${item.periodLocation ? `<p class="text-[11px] text-cyan-400 font-mono mt-0.5 flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3 text-cyan-400"></i> ${item.periodLocation}</p>` : ''}
+            </div>
+            ${item.intro ? `<p class="text-[11px] text-slate-300 leading-relaxed">${item.intro}</p>` : ''}
+            ${item.etc ? `<p class="text-[10px] text-slate-400 bg-slate-900/80 p-2 rounded-xl border border-slate-800">💡 ${item.etc}</p>` : ''}
+            <div class="flex items-center justify-between pt-1 border-t border-slate-800 text-xs">
+              <span class="text-[10px] text-slate-400">총회 연계 명소</span>
+              <button class="px-2.5 py-1 rounded-lg bg-cyan-950 text-cyan-300 hover:bg-cyan-900 border border-cyan-700 font-semibold text-[10px] flex items-center gap-1 active:scale-95 transition">
+                <span>자세히 보기</span>
+                <i data-lucide="chevron-right" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+        `;
+
+        card.onclick = () => {
+          openAttractionInAppModal(item);
+        };
+
+        container.appendChild(card);
+      });
+      lucide.createIcons();
+    }
+
+    function openAttractionInAppModal(item) {
+      openInAppModal({
+        title: item.title,
+        subtitle: item.periodLocation || "강릉 즐길거리 명소",
+        contentHtml: `
+          <div class="space-y-4">
+            ${item.thumb ? `
+              <div class="rounded-2xl overflow-hidden border border-slate-800 max-h-[220px]">
+                <img src="${item.thumb}" alt="${item.title}" class="w-full h-full object-cover">
+              </div>
+            ` : ''}
+            <div class="bg-slate-900 rounded-2xl p-4 border border-slate-800 space-y-2.5">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-cyan-950 text-cyan-300 border border-cyan-800">
+                강릉 문화예술 & 축제
+              </span>
+              <h3 class="text-sm font-black text-white">${item.title}</h3>
+              ${item.periodLocation ? `
+                <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 space-y-1">
+                  <span class="text-cyan-400 font-bold block">📍 일정 및 장소:</span>
+                  <p>${item.periodLocation}</p>
+                </div>
+              ` : ''}
+              ${item.intro ? `
+                <div class="text-xs text-slate-300 leading-relaxed pt-1">
+                  <span class="text-white font-bold block mb-1">소개 안내:</span>
+                  <p>${item.intro}</p>
+                </div>
+              ` : ''}
+              ${item.etc ? `
+                <div class="p-2.5 rounded-xl bg-cyan-950/30 border border-cyan-800/50 text-xs text-cyan-200">
+                  <span class="font-bold block mb-0.5">ℹ️ 특별 연계 혜택:</span>
+                  <p>${item.etc}</p>
+                </div>
+              ` : ''}
+            </div>
+            ${item.link ? `
+              <div class="pt-1">
+                <a href="${item.link}" target="_blank" rel="noopener" class="w-full py-3 rounded-2xl bg-gradient-to-r from-its-primary to-emerald-600 hover:from-emerald-600 hover:to-teal-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/60 transition active:scale-95">
+                  <span>공식 홈페이지 바로가기</span>
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            ` : ''}
+          </div>
+        `,
+        externalUrl: item.link || "https://2026itsworldcongress.org/ITS/120002/event/custom/event.do?map=38"
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // 7. Render Engine: Stores & Benefits (19곳)
+    // -------------------------------------------------------------------------
+    let currentStoreCat = "all";
+
+    function renderStores() {
+      const container = document.getElementById("storeListContainer");
+      if (!container) return;
+      container.innerHTML = "";
+
+      const filtered = storeData.filter(s => {
+        if (currentStoreCat === "all") return true;
+        return s.category === currentStoreCat;
+      });
+
+      filtered.forEach(store => {
+        const card = document.createElement("div");
+        card.className = "bg-its-card rounded-2xl p-3.5 border border-slate-800 space-y-2";
+        card.innerHTML = `
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold text-[10px]">
+                  ${store.categoryName}
+                </span>
+                <h4 class="text-xs font-bold text-white">${store.name}</h4>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">${store.desc}</p>
+            </div>
+            <a href="${store.mapUrl}" target="_blank" rel="noopener" class="shrink-0 p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-its-accent text-xs flex items-center gap-1 border border-slate-700/60" title="구글 지도 보기" onclick="event.stopPropagation()">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+              <span class="text-[10px] font-medium">지도</span>
+            </a>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-900 border border-emerald-900/40 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold text-[11px] flex items-center gap-1">
+              <i data-lucide="gift" class="w-3.5 h-3.5 text-its-accent"></i> ${store.benefit}
+            </span>
+            <span class="text-[10px] text-slate-400 font-medium">등록증 제시</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+      lucide.createIcons();
+    }
+    // -------------------------------------------------------------------------
+    // 8. Tab Switching & Splash Controls
+    // -------------------------------------------------------------------------
+    const navTabs = document.querySelectorAll(".nav-tab");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    navTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const targetId = tab.getAttribute("data-tab");
+
+        // Activate Tab Style
+        navTabs.forEach(t => {
+          t.classList.remove("text-its-accent");
+          t.classList.add("text-slate-400");
+          t.querySelector("span").classList.replace("font-bold", "font-semibold");
+        });
+        tab.classList.remove("text-slate-400");
+        tab.classList.add("text-its-accent");
+        tab.querySelector("span").classList.replace("font-semibold", "font-bold");
+
+        // Switch View
+        tabContents.forEach(content => {
+          content.classList.add("hidden");
+          content.classList.remove("block");
+        });
+        document.getElementById(targetId).classList.remove("hidden");
+        document.getElementById(targetId).classList.add("block");
+      });
+    });
+
+    // Day Selection Filter
+    document.querySelectorAll(".day-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        document.querySelectorAll(".day-btn").forEach(b => {
+          b.classList.remove("bg-its-primary", "text-white", "shadow-sm");
+          b.classList.add("text-slate-400");
+        });
+        const target = e.currentTarget;
+        target.classList.add("bg-its-primary", "text-white", "shadow-sm");
+        target.classList.remove("text-slate-400");
+
+        currentSelectedDay = parseInt(target.getAttribute("data-day"));
+        renderSchedule();
+      });
+    });
+
+    // Venue Filter
+    document.querySelectorAll(".venue-filter").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        document.querySelectorAll(".venue-filter").forEach(b => {
+          b.classList.remove("bg-emerald-500/20", "text-its-accent", "border-emerald-500/30");
+          b.classList.add("bg-slate-900", "text-slate-400", "border-slate-800");
+        });
+        const target = e.currentTarget;
+        target.classList.add("bg-emerald-500/20", "text-its-accent", "border-emerald-500/30");
+        target.classList.remove("bg-slate-900", "text-slate-400", "border-slate-800");
+
+        currentSelectedVenue = target.getAttribute("data-venue");
+        renderSchedule();
+      });
+    });
+
+    // Reset Wayfinding Button
+    const btnResetWayfinding = document.getElementById("btnResetWayfinding");
+    if (btnResetWayfinding) {
+      btnResetWayfinding.addEventListener("click", resetWayfinding);
+    }
+
+    // Booth Zone Pills Filter
+    document.querySelectorAll(".booth-zone-pill").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        document.querySelectorAll(".booth-zone-pill").forEach(b => {
+          b.classList.remove("bg-its-primary", "text-white");
+          b.classList.add("bg-slate-900", "text-slate-400", "border", "border-slate-800");
+        });
+        const target = e.currentTarget;
+        target.classList.add("bg-its-primary", "text-white");
+        target.classList.remove("bg-slate-900", "text-slate-400", "border", "border-slate-800");
+
+        currentBoothZone = target.getAttribute("data-zone");
+        renderBoothDirectory();
+      });
+    });
+
+    // Booth Search Input
+    const boothInput = document.getElementById("boothSearchInput");
+    const btnClearBooth = document.getElementById("btnClearBoothSearch");
+
+    if (boothInput) {
+      boothInput.addEventListener("input", (e) => {
+        boothSearchKeyword = e.target.value;
+        if (btnClearBooth) {
+          if (boothSearchKeyword.length > 0) {
+            btnClearBooth.classList.remove("hidden");
+          } else {
+            btnClearBooth.classList.add("hidden");
+          }
+        }
+        renderBoothDirectory();
+      });
+    }
+
+    if (btnClearBooth) {
+      btnClearBooth.addEventListener("click", () => {
+        boothInput.value = "";
+        boothSearchKeyword = "";
+        btnClearBooth.classList.add("hidden");
+        renderBoothDirectory();
+      });
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Continuous Daily News Auto-Sync (SWR: Stale-While-Revalidate Caching)
+    // -------------------------------------------------------------------------
+    async function initAutoNewsSync() {
+      try {
+        const cacheKey = "its_korea_news_cache_v1";
+        const timeKey = "its_korea_news_timestamp_v1";
+        const cached = localStorage.getItem(cacheKey);
+        const cachedTime = localStorage.getItem(timeKey);
+        const now = Date.now();
+
+        // 1. Immediately render cached data if available (0ms instant UI)
+        if (cached) {
+          try {
+            const parsed = JSON.parse(cached);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              itsKoreaNewsData = parsed;
+              renderItsKoreaNews();
+            }
+          } catch(e) {}
+        }
+
+        // 2. Background Revalidation if cache older than 30 minutes
+        if (!cachedTime || (now - Number(cachedTime)) > (1000 * 60 * 30)) {
+          const res = await fetch("its_korea_news.json?t=" + Math.floor(now / (1000 * 60 * 15)));
+          if (res.ok) {
+            const data = await res.json();
+            if (Array.isArray(data) && data.length > 0) {
+              itsKoreaNewsData = data;
+              localStorage.setItem(cacheKey, JSON.stringify(data));
+              localStorage.setItem(timeKey, now.toString());
+              renderItsKoreaNews();
+            }
+          }
+        }
+      } catch (err) {
+        // Safe silent fallback to bundled data
+      }
+    }
+
+    // Refresh News Button (Reloads from its_korea_news.json)
+    const btnRefreshNews = document.getElementById("btnRefreshNews");
+    if (btnRefreshNews) {
+      btnRefreshNews.addEventListener("click", async () => {
+        btnRefreshNews.classList.add("animate-spin");
+        try {
+          const res = await fetch("its_korea_news.json?" + new Date().getTime());
+          if (res.ok) {
+            itsKoreaNewsData = await res.json();
+            renderItsKoreaNews();
+    initAutoNewsSync();
+            alert("ITS Korea 최신 뉴스가 성공적으로 갱신되었습니다.");
+          }
+        } catch (e) {
+          console.error(e);
+        } finally {
+          btnRefreshNews.classList.remove("animate-spin");
+        }
+      });
+    }
+
+    // News Filter Tab
+    document.querySelectorAll(".news-tab").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        document.querySelectorAll(".news-tab").forEach(b => {
+          b.classList.remove("bg-its-primary", "text-white");
+          b.classList.add("bg-slate-900", "text-slate-400", "border", "border-slate-800");
+        });
+        const target = e.currentTarget;
+        target.classList.add("bg-its-primary", "text-white");
+        target.classList.remove("bg-slate-900", "text-slate-400", "border", "border-slate-800");
+
+        currentNewsFilter = target.getAttribute("data-filter");
+        renderItsKoreaNews();
+      });
+    });
+
+    // Store Category Filter
+    document.querySelectorAll(".store-filter-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        document.querySelectorAll(".store-filter-btn").forEach(b => {
+          b.classList.remove("bg-its-primary", "text-white");
+          b.classList.add("bg-slate-900", "border-slate-800", "text-slate-400");
+        });
+        const target = e.currentTarget;
+        target.classList.add("bg-its-primary", "text-white");
+        target.classList.remove("bg-slate-900", "border-slate-800", "text-slate-400");
+
+        currentStoreCat = target.getAttribute("data-cat");
+        renderStores();
+      });
+    });
+
+    // -------------------------------------------------------------------------
+    // Wi-Fi Password Copy Handler
+    // -------------------------------------------------------------------------
+    const btnCopyWifi = document.getElementById("btnCopyWifiPw");
+    if (btnCopyWifi) {
+      btnCopyWifi.addEventListener("click", () => {
+        const pwEl = document.getElementById("wifiPwVal");
+        const pw = pwEl ? pwEl.innerText.trim() : "20261019@";
+        const btnText = document.getElementById("btnCopyWifiPwText");
+
+        const copySuccess = () => {
+          showToast("컨벤션센터 Wi-Fi 비밀번호가 복사되었습니다!");
+          if (btnText) {
+            const orig = btnText.innerText;
+            btnText.innerText = "✓ 복사 완료!";
+            btnCopyWifi.classList.add("bg-emerald-500/30", "text-emerald-300", "border-emerald-500/50");
+            setTimeout(() => {
+              btnText.innerText = orig;
+              btnCopyWifi.classList.remove("bg-emerald-500/30", "text-emerald-300", "border-emerald-500/50");
+            }, 2000);
+          }
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(pw).then(copySuccess).catch(() => {
+            const ta = document.createElement("textarea");
+            ta.value = pw;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+            copySuccess();
+          });
+        } else {
+          const ta = document.createElement("textarea");
+          ta.value = pw;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          copySuccess();
+        }
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // In-App Modal Close Handlers
+    // -------------------------------------------------------------------------
+    const btnCloseInApp = document.getElementById("btnCloseInAppModal");
+    const btnDismissInApp = document.getElementById("btnDismissInAppModal");
+    if (btnCloseInApp) btnCloseInApp.addEventListener("click", closeInAppModal);
+    if (btnDismissInApp) btnDismissInApp.addEventListener("click", closeInAppModal);
+
+    // -------------------------------------------------------------------------
+    // Venue Guide Chips & Bird's Eye Plan Click Handlers
+    // -------------------------------------------------------------------------
+    const birdEyeCard = document.getElementById("venueBirdEyeCard");
+    if (birdEyeCard) {
+      birdEyeCard.addEventListener("click", () => {
+        openInAppModal({
+          title: "강릉 올림픽파크 전시장 전체 조감도",
+          subtitle: "2026 ITS 세계총회 종합 행사장",
+          contentHtml: `
+            <div class="space-y-4">
+              <div class="rounded-2xl overflow-hidden border border-slate-700 bg-black">
+                <img src="https://admin.o2meet-g.kr/data/editor/20260929175143f16ab5c7-a90b-4c73-b32c-f76dac78c273.png" alt="전체 조감도" class="w-full h-auto object-contain">
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2.5 text-xs text-slate-300">
+                <h4 class="font-bold text-white text-sm">올림픽파크 4대 구역 구성 안내</h4>
+                <ul class="space-y-2 text-slate-400 text-xs">
+                  <li><strong class="text-cyan-400">1. 강릉컨벤션센터:</strong> 개·폐회식, 장관급 라운드테이블, 12개 전문 세션 회의실, 등록데스크</li>
+                  <li><strong class="text-emerald-400">2. 강릉스피드스케이팅경기장:</strong> 108개 글로벌 참가기업 산업 전시관, VIP 라운지, 오찬장</li>
+                  <li><strong class="text-amber-400">3. 야외광장:</strong> 자율주행·C-ITS·UAM 드론 미래 모빌리티 실증 시연(Tech Demo)</li>
+                  <li><strong class="text-indigo-400">4. 하키센터 & 환승센터:</strong> 종합 셔틀버스 환승센터 및 부대 지원센터</li>
+                </ul>
+              </div>
+            </div>
+          `,
+          externalUrl: "https://2026itsworldcongress.org/ITS/120002/event/custom/event.do?map=37"
+        });
+      });
+    }
+
+    document.querySelectorAll(".venue-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        const venue = chip.getAttribute("data-venue");
+        if (venue === "convention") {
+          openInAppModal({
+            title: "강릉컨벤션센터 층별 배치도",
+            subtitle: "회의실, 개·폐회식, 등록데스크, 프레스센터",
+            contentHtml: `
+              <div class="space-y-3">
+                <div class="rounded-2xl overflow-hidden border border-slate-700 bg-black">
+                  <img src="https://admin.o2meet-g.kr/data/editor/202610121343501e8b6d68-7d99-47ba-9c19-c0af5a64fccf.png" alt="강릉컨벤션센터 배치도" class="w-full h-auto object-contain">
+                </div>
+                <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+                  <h4 class="font-bold text-cyan-300">강릉컨벤션센터 주요 시설</h4>
+                  <p>• 1층: 종합 등록데스크, VIP 대기실, 다목적실 102호(의무실)</p>
+                  <p>• 2층: 프레스센터, 주관사 사무국</p>
+                  <p>• 3층: 본회의장, 기술세션 회의실(1~12호), 프리뷰룸, 기도실(304호)</p>
+                </div>
+              </div>
+            `,
+            externalUrl: "https://admin.o2meet-g.kr/data/editor/202610121343501e8b6d68-7d99-47ba-9c19-c0af5a64fccf.png"
+          });
+        } else if (venue === "skating") {
+          openInAppModal({
+            title: "강릉스피드스케이팅경기장 전시홀 도면",
+            subtitle: "108개 글로벌 기업 부스, 비즈니스 라운지, 오찬장",
+            contentHtml: `
+              <div class="space-y-3">
+                <div class="rounded-2xl overflow-hidden border border-slate-700 bg-black">
+                  <img src="https://admin.o2meet-g.kr/data/editor/20261012134339370e8ebe-c445-48a0-9fbd-46c3956372c5.png" alt="강릉스피드스케이팅경기장 배치도" class="w-full h-auto object-contain">
+                </div>
+                <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+                  <h4 class="font-bold text-emerald-300">스피드스케이팅경기장 주요 시설</h4>
+                  <p>• 전시장 메인홀: Zone 1 ~ Zone 4 (108개 기업 및 국가관)</p>
+                  <p>• 1층 Gate 1: 안내데스크 / Gate 3 (G16): 의무실 및 기도실</p>
+                  <p>• 중앙 오픈 라운지: 참가자 커피 브레이크 및 비즈니스 미팅석</p>
+                </div>
+              </div>
+            `,
+            externalUrl: "https://admin.o2meet-g.kr/data/editor/20261012134339370e8ebe-c445-48a0-9fbd-46c3956372c5.png"
+          });
+        } else if (venue === "outdoor") {
+          openInAppModal({
+            title: "야외광장 기술실증 (Tech Demo) 구역",
+            subtitle: "미래 모빌리티 자율주행·드론·C-ITS 시연",
+            contentHtml: `
+              <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs text-slate-300">
+                <span class="px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 font-bold text-[10px]">Technical Demonstration</span>
+                <h4 class="font-bold text-white text-sm">야외광장 시연 프로그램</h4>
+                <p>총회 등록 참가자 누구나 야외광장에서 레벨4 자율주행 셔틀, C-ITS 기반 스마트 교차로 실증 인프라, 미래 드론 물류 시연을 직접 탑승 및 참관하실 수 있습니다.</p>
+                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-[11px] text-slate-400 space-y-1">
+                  <p>• 운영 시간: 10.19(월) ~ 10.22(목) 10:00 ~ 17:00</p>
+                  <p>• 탑승 신청: 현장 야외광장 데모 키오스크 또는 총회 비표 지참</p>
+                </div>
+              </div>
+            `,
+            externalUrl: "https://2026itsworldcongress.org/ITS/120002/event/custom/event.do?map=37"
+          });
+        } else if (venue === "hockey") {
+          openInAppModal({
+            title: "하키센터 & 종합 환승센터",
+            subtitle: "KTX 강릉역·주요 호텔 연계 셔틀버스 환승",
+            contentHtml: `
+              <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs text-slate-300">
+                <span class="px-2 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 font-bold text-[10px]">Shuttle Hub</span>
+                <h4 class="font-bold text-white text-sm">셔틀버스 종합 환승 안내</h4>
+                <p>KTX 강릉역 및 시내 10개 공식 호텔을 연결하는 순환 셔틀버스가 하키센터 종합 환승 주차장에서 매 15분 간격으로 운행됩니다.</p>
+                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-[11px] text-slate-400 space-y-1">
+                  <p>• 1호선: 행사장 ↔ KTX 강릉역 (07:30 ~ 19:30)</p>
+                  <p>• 2호선: 행사장 ↔ 안목/경포 호텔 구역 (07:30 ~ 22:00)</p>
+                </div>
+              </div>
+            `,
+            externalUrl: "https://2026itsworldcongress.org/ITS/120002/event/custom/event.do?map=37"
+          });
+        }
+      });
+    });
+
+    // -------------------------------------------------------------------------
+    // Tab 4 Sub-Navigation Toggle (Attractions vs Stores)
+    // -------------------------------------------------------------------------
+    // Tab 4 Sub-Navigation Toggle: Stores (Default) vs Attractions
+    const subTabStores = document.getElementById("btnSubTabStores");
+    const subTabAttr = document.getElementById("btnSubTabAttractions");
+    const secStores = document.getElementById("subSectionStores");
+    const secAttr = document.getElementById("subSectionAttractions");
+
+    if (subTabAttr && subTabStores && secAttr && secStores) {
+      subTabStores.addEventListener("click", () => {
+        subTabStores.classList.add("bg-its-primary", "text-white");
+        subTabStores.classList.remove("text-slate-400");
+        subTabAttr.classList.remove("bg-its-primary", "text-white");
+        subTabAttr.classList.add("text-slate-400");
+
+        secStores.classList.remove("hidden");
+        secAttr.classList.add("hidden");
+      });
+
+      subTabAttr.addEventListener("click", () => {
+        subTabAttr.classList.add("bg-its-primary", "text-white");
+        subTabAttr.classList.remove("text-slate-400");
+        subTabStores.classList.remove("bg-its-primary", "text-white");
+        subTabStores.classList.add("text-slate-400");
+
+        secAttr.classList.remove("hidden");
+        secStores.classList.add("hidden");
+      });
+    }
+
+    // Splash Screen Dismissal
+    const splash = document.getElementById("splashScreen");
+    const dismissSplash = () => {
+      splash.classList.add("opacity-0", "pointer-events-none");
+      setTimeout(() => {
+        splash.style.display = "none";
+      }, 700);
+    };
+
+    document.getElementById("skipSplashBtn").addEventListener("click", dismissSplash);
+    document.getElementById("enterAppBtn").addEventListener("click", dismissSplash);
+
+    // Replay Intro Video Button
+    document.getElementById("btnReplayIntro").addEventListener("click", () => {
+      splash.style.display = "flex";
+      splash.classList.remove("opacity-0", "pointer-events-none");
+      const vid = document.getElementById("splashVideo");
+      vid.currentTime = 0;
+      vid.play();
+    });
+
+    // Pass Modal Controls
+    const passModal = document.getElementById("passModal");
+    document.getElementById("btnViewPassBenefits").addEventListener("click", () => {
+      passModal.classList.remove("hidden");
+    });
+    document.getElementById("btnClosePassModal").addEventListener("click", () => {
+      passModal.classList.add("hidden");
+    });
+
+    // Global Search Mock
+    document.getElementById("btnSearch").addEventListener("click", () => {
+      const q = prompt("찾으시는 세션명, 기업명, 또는 음식점을 입력하세요:");
+      if (q && q.trim()) {
+        const query = q.trim().toLowerCase();
+        // Switch to floor map and search booth
+        const floorTabBtn = document.querySelector('[data-tab="tabFloorMap"]');
+        if (floorTabBtn) floorTabBtn.click();
+        const bInput = document.getElementById("boothSearchInput");
+        if (bInput) {
+          bInput.value = query;
+          boothSearchKeyword = query;
+          renderBoothDirectory();
+        }
+      }
+    });
+
+    // -------------------------------------------------------------------------
+    // Initial Execution
+    // -------------------------------------------------------------------------
+    renderSchedule();
+    renderBoothDirectory();
+    renderItsKoreaNews();
+    renderAttractions();
+    renderStores();
+  </script>
+</body>
+</html>

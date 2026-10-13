@@ -1,0 +1,974 @@
+[
+  {
+    "booth": "P1",
+    "name": "국토교통부",
+    "desc": "한국 ITS의 발전 과정과 제도적 기반, 미래 정책 비전과 전국 교통데이터 연계 체계를 종합 소개합니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 15.2,
+    "y": 50
+  },
+  {
+    "booth": "P2",
+    "name": "현대자동차그룹",
+    "desc": "글로벌 완성차 제조기업으로 차세대 목적기반차량(PBV) 및 자율주행 모빌리티를 선보입니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 15.2,
+    "y": 38.5
+  },
+  {
+    "booth": "P3",
+    "name": "강릉시청",
+    "desc": "도시 전역 지능형교통체계(ITS)와 실시간 신호제어, 스마트 횡단보도, AI 자율주행 실증 등 미래 교통도시를 구현합니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 22.8,
+    "y": 57
+  },
+  {
+    "booth": "P4",
+    "name": "주식회사 바이다",
+    "desc": "지능형 교통 시스템(ITS) 시장을 선도하는 자체 개발 교통용 레이더 센서 및 고유 신호처리 기술 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 22.8,
+    "y": 49.5
+  },
+  {
+    "booth": "P5",
+    "name": "롯데이노베이트(주)",
+    "desc": "자율주행, 스마트 톨링, ITS/C-ITS, EVSIS 전기차 충전 인프라 등 모빌리티 통합 플랫폼을 구축합니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 22.8,
+    "y": 38.5
+  },
+  {
+    "booth": "P6",
+    "name": "재단법인 자율주행기술개발혁신사업단",
+    "desc": "2027년 융합형 레벨4+ 자율주행 상용화 기반 마련을 위한 범부처 협력체계 R&D 성과를 소개합니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 22.8,
+    "y": 27
+  },
+  {
+    "booth": "P7_1",
+    "name": "(재) 강릉과학산업진흥원",
+    "desc": "산·학·연·관 긴밀한 협력 네트워크를 통해 유망 창업기업 육성 및 지역 강소기업을 지원합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 49.5
+  },
+  {
+    "booth": "P7_2",
+    "name": "China ITS Industry Alliance",
+    "desc": "중국 MOT, MIIT 등이 지원하는 비영리 기구로 580여 회원사와 글로벌 C-ITS 협력을 추진합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 52
+  },
+  {
+    "booth": "P8",
+    "name": "한국도로교통공단 (KoROAD)",
+    "desc": "도로교통안전 전담 국가기관으로 C-ITS, 자율주행 안전, 데이터 기반 교통관리 노하우를 공유합니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 32.5,
+    "y": 38.5
+  },
+  {
+    "booth": "P9",
+    "name": "에스트래픽(주)",
+    "desc": "도로(스마트 톨링, MLFF, ITS), 철도(신호, 통신, AFC), AX 분야 스마트 교통 인프라 통합 솔루션 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 49.5
+  },
+  {
+    "booth": "P11",
+    "name": "진우에이티에스(주)",
+    "desc": "스마트 교통·통신 인프라, 전기·철도신호, CCTV 및 스마트 도로안전시설 전문 시공·제조 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 49.5
+  },
+  {
+    "booth": "P12",
+    "name": "실도로 자율주행 인프라기반 통합실증체인 얼라이언스",
+    "desc": "한국자동차연구원 & 자동차융합기술원 등 전국 실증기관이 협력하여 실증 데이터 및 핵심기술을 검증합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 38.5
+  },
+  {
+    "booth": "P13",
+    "name": "㈜에스오에스랩",
+    "desc": "라이다 센서 전문기업으로 차세대 스마트 주차유도 LPGS SPOT® 및 실시간 유동량 모니터링 LCAS QMAP®을 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 49.5
+  },
+  {
+    "booth": "P14",
+    "name": "주식회사 핀텔",
+    "desc": "The Smartest AI Solution 슬로건 아래 PREVAX 도시 영상·센서 입체분석 지능형 교통 AI 플랫폼을 설계합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.5,
+    "y": 38.5
+  },
+  {
+    "booth": "P15_1",
+    "name": "(주)LIG",
+    "desc": "기술을 기반으로 그룹사 경쟁력 제고 및 모빌리티 미래성장사업 발굴을 수행하는 지주회사입니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 47.2,
+    "y": 48
+  },
+  {
+    "booth": "P15_2",
+    "name": "주식회사 엘아이지아큐버",
+    "desc": "무선망 최적화 및 위성통신·자율주행 AI 융합 초연결 차세대 네트워크 환경을 구현합니다.",
+    "zone": "Zone 1",
+    "type": "Premium",
+    "x": 47.2,
+    "y": 51.5
+  },
+  {
+    "booth": "P17, P19",
+    "name": "ERTICO - 유럽 지능형 교통 시스템",
+    "desc": "유럽과 글로벌 모빌리티 디지털화를 선도하며 안전하고 회복탄력적인 CCAM 파트너십을 이끌어갑니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 55,
+    "y": 49.5
+  },
+  {
+    "booth": "P18",
+    "name": "2029ITSWC、ITS Taiwan",
+    "desc": "2029 타이베이 세계총회 유치 및 대만 스마트 교통 산업-정부 가교 역할을 수행하는 협회관입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 54,
+    "y": 38.5
+  },
+  {
+    "booth": "P20",
+    "name": "퀄컴",
+    "desc": "스냅드래곤 디지털 섀시와 C-V2X 칩셋 솔루션으로 엣지부터 클라우드까지 지능형 모빌리티를 구현합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 59.2,
+    "y": 38.5
+  },
+  {
+    "booth": "P21",
+    "name": "주식회사 노비텍",
+    "desc": "i-Nova 지능형 교통단속, 주차관리, 도로안전 감시 특수 카메라 전문 개발·제조 기업입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 62.5,
+    "y": 49.5
+  },
+  {
+    "booth": "P22, P24",
+    "name": "Toyota Motor Corporation",
+    "desc": "교통사고 제로와 모두를 위한 이동(Mobility for All)을 실현하는 첨단 ITS 모빌리티 솔루션을 선보입니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 69.2,
+    "y": 49.5
+  },
+  {
+    "booth": "P23",
+    "name": "AISIN CORPORATION",
+    "desc": "글로벌 부품 공급업체로 전동화 파워트레인 및 탑승자 상태 감지 센싱 기반 안심 모빌리티를 지원합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 67.8,
+    "y": 38.5
+  },
+  {
+    "booth": "P25",
+    "name": "덴소코리아주식회사",
+    "desc": "글로벌 자동차 부품 기업 덴소 한국 거점으로 클러스터, HUD, ADAS 센싱 핵심 전장 부품을 공급합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 72.8,
+    "y": 38.5
+  },
+  {
+    "booth": "P26",
+    "name": "미래 드론 교통관 (항공안전기술원)",
+    "desc": "통합항공인증체계 구축 및 무인기 안전기술, UAM/AAM 미래 드론 교통 생태계를 활성화합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 76.8,
+    "y": 59.5
+  },
+  {
+    "booth": "P27",
+    "name": "한국도로공사",
+    "desc": "전국 4,480km 고속도로 건설·운영을 담당하며 첨단 C-ITS 및 디지털 트윈 교통관제를 선도합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 76.8,
+    "y": 49.5
+  },
+  {
+    "booth": "P28",
+    "name": "경기도미래모빌리티센터 ((재)차세대융합기술연구원)",
+    "desc": "판교제로시티 운영조직으로서 자율주행 산업 생태계를 조성하고 공공 모빌리티 혁신을 추진합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 77.2,
+    "y": 38.5
+  },
+  {
+    "booth": "P30, P31",
+    "name": "국토교통부 (AX Sprint)",
+    "desc": "미래 모빌리티와 스마트 인프라 혁신기술을 통해 국토교통 분야 AI 전환(AX)과 경쟁력을 이끕니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 84.5,
+    "y": 45
+  },
+  {
+    "booth": "S1",
+    "name": "주식회사 비트센싱",
+    "desc": "차량용 4D 이미징 레이더와 전천후 교통 모니터링 센서로 스마트 교차로 인지 솔루션을 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 63.5
+  },
+  {
+    "booth": "S2",
+    "name": "에티포스",
+    "desc": "레벨 4+ 자율주행 및 커넥티드 모빌리티를 위한 맞춤형 V2X OBU/RSU 소프트웨어 정의 모뎀 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 56.5
+  },
+  {
+    "booth": "S3_1",
+    "name": "아우토크립트",
+    "desc": "차량 사이버보안, V2X 보안 인증, 전기차 충전 보안 등 피지컬 AI 엔드투엔드 보안을 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 30.5
+  },
+  {
+    "booth": "S3_2",
+    "name": "주식회사 네오트래픽",
+    "desc": "교통신호제어, 스마트교차로 및 스마트횡단보도 시스템 소프트웨어와 현장 인프라를 구축합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 33.5
+  },
+  {
+    "booth": "S4_1",
+    "name": "디지털도로대장 (국토교통부 디지털도로팀)",
+    "desc": "전국 도로 시설물 아날로그 대장을 디지털 전환하고 도로 ITS 기본계획 및 스마트톨링을 운영합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 22
+  },
+  {
+    "booth": "S4_2",
+    "name": "코어시스템즈",
+    "desc": "버스 중심 대중교통 데이터 실시간 수집 및 정확한 운행관리 교통 IT 파트너입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 28.5,
+    "y": 24.5
+  },
+  {
+    "booth": "S5_1",
+    "name": "(주)이레솔루션",
+    "desc": "교통 시스템 및 인프라 컨설팅, 구축, 유지보수 전문 토털 솔루션을 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 63.5
+  },
+  {
+    "booth": "S5_2",
+    "name": "유티정보(주)",
+    "desc": "UT 통합 교통 관제 시스템을 기반으로 자율주행, AI, 디지털 트윈 R&D를 선도합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 66
+  },
+  {
+    "booth": "S6_1",
+    "name": "새솔테크",
+    "desc": "PKI 기반 실시간 V2X 보안 인증서 플랫폼을 통해 차량-인프라 간 신뢰 통신을 지원합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 56.5
+  },
+  {
+    "booth": "S6_2",
+    "name": "MDS테크",
+    "desc": "자율주행 센서 융합, V2X 통신, 차량 기능안전(ISO 26262) 자동차 소프트웨어 솔루션을 공급합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 59
+  },
+  {
+    "booth": "S6_3",
+    "name": "Cohda Wireless",
+    "desc": "V2X 온보드/노변 장비 및 커넥티드 자율주행차·지하광산 위치측위 소프트웨어 글로벌 선도 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 54
+  },
+  {
+    "booth": "S7_1",
+    "name": "에코비트 (삼원FA)",
+    "desc": "철도·버스 대중교통 결제 인프라와 AI·빅데이터 기반 통합 지능형 교통 시스템을 구축합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 30.5
+  },
+  {
+    "booth": "S7_2",
+    "name": "웨이즈원 주식회사",
+    "desc": "LDM 기술 기반 LDM2X, LDM TWIN 관제플랫폼으로 스마트 교차로 및 자율협력주행을 지원합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 33.5
+  },
+  {
+    "booth": "S8_1",
+    "name": "위코",
+    "desc": "Chroma 공식 총판으로 배터리 충방전기, 모터 다이노, EV/EVSE 모빌리티 테스트 시스템을 공급합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 22
+  },
+  {
+    "booth": "S8_2",
+    "name": "(주)모바휠",
+    "desc": "음파 기반 AI 센서 EG-Way를 통해 도로 노면 상태와 결빙·수막 위험을 실시간 분석합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 24.5
+  },
+  {
+    "booth": "S8_3",
+    "name": "주식회사 노타",
+    "desc": "넷스프레소(NetsPresso) 하드웨어 인지형 AI 경량화 플랫폼 및 온디바이스 비전 AI 솔루션을 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 33.2,
+    "y": 26.5
+  },
+  {
+    "booth": "S9",
+    "name": "ITS Singapore",
+    "desc": "싱가포르 지능형교통체계 비영리 협회관으로 혁신 교통 솔루션과 글로벌 비즈니스를 연계합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 63.5
+  },
+  {
+    "booth": "S10_1",
+    "name": "벡터 인포매틱",
+    "desc": "소프트웨어 정의 차량(SDV) 개발·검증을 위한 임베디드 툴 및 글로벌 엔지니어링 솔루션 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 56.5
+  },
+  {
+    "booth": "S10_2",
+    "name": "STAR Systems International Ltd.",
+    "desc": "전자요금징수(ETC), MLFF 다차로 스마트톨링을 위한 고성능 RFID 트랜스폰더와 리더기를 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 54
+  },
+  {
+    "booth": "S11",
+    "name": "주식회사 싸인텔레콤",
+    "desc": "도로전광표지(VMS), BIS 버스정보시스템, 스마트 디스플레이 기획·설계·구축 전문 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 30.5
+  },
+  {
+    "booth": "S12",
+    "name": "ITS Suzhou",
+    "desc": "중국 쑤저우 스마트 교통 인프라 디지털화 및 AI 연계 교통 산업 클러스터를 홍보합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 38,
+    "y": 23.5
+  },
+  {
+    "booth": "S13_1",
+    "name": "Wavetronix",
+    "desc": "미국 본사 제조 고정밀 스마트 레이더 센서(SmartSensor)로 정확한 도로 차량 검지를 실현합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 63.5
+  },
+  {
+    "booth": "S13_2",
+    "name": "주식회사 안랩",
+    "desc": "국내 대표 통합보안 기업으로 제로 트러스트 및 AI 기반 스마트 인프라 사이버보안을 제공합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 66
+  },
+  {
+    "booth": "S14_1",
+    "name": "뱀부스(주)",
+    "desc": "정밀도로지도 기반 AI 센서 데이터 융합 분석 및 3D 디지털 트윈 교통관제 벤처기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 56.5
+  },
+  {
+    "booth": "S14_2",
+    "name": "ITS America Events",
+    "desc": "미국 ITS 협회관으로 북미 공공-민간 교통 리더십과 차세대 스마트 교통 표준을 공유합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 54
+  },
+  {
+    "booth": "S15",
+    "name": "VanJee Technology Co., Ltd",
+    "desc": "LiDAR, WIM(고속축중), ETC 및 V2X 첨단 도로 모니터링 인프라 통합 솔루션 전문 기업입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 30.5
+  },
+  {
+    "booth": "S16",
+    "name": "ITS Asia-Pacific (ITS AP)",
+    "desc": "아시아·태평양 11개국 ITS 협력 기구로 2027 오클랜드 포럼 및 역내 기술 협력을 총괄합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 42.8,
+    "y": 23.5
+  },
+  {
+    "booth": "S17",
+    "name": "렉스젠(주)",
+    "desc": "AI 기반 스마트 영상분석, 차량번호인식(LPR), 도로안전 감시 솔루션을 개발합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 47.2,
+    "y": 63.5
+  },
+  {
+    "booth": "S18",
+    "name": "Umovity",
+    "desc": "Econolite와 PTV Group이 결합된 글로벌 교통 계획, 실시간 관제 및 AI 시뮬레이션 플랫폼입니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 47.2,
+    "y": 56.5
+  },
+  {
+    "booth": "S19",
+    "name": "TomTom",
+    "desc": "글로벌 지도제작 선도기업으로 실시간 교통정보 API, 내비게이션 SDK 및 스마트맵 데이터를 공급합니다.",
+    "zone": "Zone 1",
+    "type": "Standard",
+    "x": 47.2,
+    "y": 30.5
+  },
+  {
+    "booth": "S20",
+    "name": "강원특별자치도",
+    "desc": "횡성 미래모빌리티 거점단지 및 도 전역 AI 교통 이음망을 통해 미래 모빌리티 생태계를 조성합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 53.2,
+    "y": 63.5
+  },
+  {
+    "booth": "S21",
+    "name": "엠클라비스(주)",
+    "desc": "고정식·이동식 단속 레이더 및 교통량 수집 센서를 자체 설계·생산하는 레이더 전문기업입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 53.2,
+    "y": 56.5
+  },
+  {
+    "booth": "S22",
+    "name": "포럼에이트 (FORUM8)",
+    "desc": "3D VR 주행 시뮬레이터 UC-win/Road 디지털 트윈 플랫폼 및 메타버스 F8VPS를 공급합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 53.2,
+    "y": 30.5
+  },
+  {
+    "booth": "S23",
+    "name": "주식회사 유디엔에스 (UDNS)",
+    "desc": "멀티센서·IoT 기반 고속축중(WIM), 스마트 자중계, 3D 라이다 차량 제원 측정 솔루션을 개발합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 58,
+    "y": 63.5
+  },
+  {
+    "booth": "S24_1",
+    "name": "(재)강원정보문화산업진흥원",
+    "desc": "강원 ICT 및 콘텐츠 산업 육성, 지역 특화 문화·데이터 산업 생태계 조성을 지원합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 58,
+    "y": 56.5
+  },
+  {
+    "booth": "S24_2",
+    "name": "(주)네이처아이티",
+    "desc": "공간정보·기상·AI 융합 지능형 영상분석으로 도로안전 및 재난대응 정보를 제공합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 58,
+    "y": 59
+  },
+  {
+    "booth": "S25, S26, S29, S30",
+    "name": "ITS Japan",
+    "desc": "일본 국토교통성, 토요타통상, 미쓰비시, 파나소닉, NEC 등 23개 기관·기업 합동 일본 국가관입니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 60,
+    "y": 26.5
+  },
+  {
+    "booth": "S27_1",
+    "name": "한국전자기술연구원 (KETI)",
+    "desc": "전자·IT 선도기술 개발 및 중소·중견기업 기술혁신을 지원하는 전문생산기술연구기관입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 62.5,
+    "y": 63.5
+  },
+  {
+    "booth": "S27_2",
+    "name": "㈜이지트래픽",
+    "desc": "긴급차량 우선신호, 스마트 교차로 실시간 신호제어, 디지털트윈 신호최적화 시스템을 공급합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 62.5,
+    "y": 66
+  },
+  {
+    "booth": "S28",
+    "name": "ITS Indonesia",
+    "desc": "인도네시아 신수도 누산타라 스마트시티 및 지속가능한 지능형 교통 생태계를 소개합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 62.5,
+    "y": 56.5
+  },
+  {
+    "booth": "S31",
+    "name": "한국교통안전공단 (TS)",
+    "desc": "자율주행차 K-City 실증단지 운영, 자동차 검사 및 교통안전 종합 공공기관입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 66.8,
+    "y": 63.5
+  },
+  {
+    "booth": "S32_1",
+    "name": "㈜뷰런테크놀로지",
+    "desc": "LiDAR 기반 인지 AI 기술로 스마트 인프라 공간 인지 솔루션 Lookout(GS 1등급)을 제공합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 66.8,
+    "y": 56.5
+  },
+  {
+    "booth": "S32_2",
+    "name": "주식회사 트레시스",
+    "desc": "차량신호등 보조장치 및 지주 일체형 태양광 가로등으로 에너지 자립 스마트 도로를 구축합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 66.8,
+    "y": 59
+  },
+  {
+    "booth": "S33, S34",
+    "name": "Honda Motor CO., Ltd.",
+    "desc": "혼다 센싱 360+ 및 협력형 안전 운전 지원 모빌리티 기술을 선보입니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 67.5,
+    "y": 26.5
+  },
+  {
+    "booth": "S35",
+    "name": "오토엘 주식회사 (AutoL)",
+    "desc": "특수 고감도 광학기술로 악천후 야외 환경에서도 안정 작동하는 소형 고성능 라이다를 개발합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 71.5,
+    "y": 63.5
+  },
+  {
+    "booth": "S36_1",
+    "name": "주식회사 아이디씨티",
+    "desc": "터널·지하 GPS 음영지역에서 연속 위성 신호를 제공하는 uGPS 시스템을 개발합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 71.5,
+    "y": 56.5
+  },
+  {
+    "booth": "S36_2",
+    "name": "(주)퀀텀하이텍",
+    "desc": "실주행 BMS 배터리 데이터 AI 분석 플랫폼 TRIZ-AI로 상태(SOH) 및 화재 위험을 예측합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 71.5,
+    "y": 59
+  },
+  {
+    "booth": "S37_1",
+    "name": "SAFRAN Syntony GNSS",
+    "desc": "SubWAVE 솔루션으로 터널, 지하철, 광산 내에 정밀 GPS 신호를 시뮬레이션 방사합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 72.5,
+    "y": 26.5
+  },
+  {
+    "booth": "S37_2",
+    "name": "(주)인투스페이스",
+    "desc": "한국항공우주연구원 연구소기업으로 SDR 기반 위성항법 신호 생성 및 터널 GPS PNT 솔루션을 개발합니다.",
+    "zone": "Zone 2",
+    "type": "Premium",
+    "x": 72.5,
+    "y": 29.5
+  },
+  {
+    "booth": "S38_1,3",
+    "name": "(주)엣지디엑스",
+    "desc": "현장 즉각 영상분석 차세대 VLM 기반 엣지 AI 관제 플랫폼으로 오감지 없는 스마트 안전망을 구축합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 72.5,
+    "y": 23.5
+  },
+  {
+    "booth": "S38_2",
+    "name": "(주)스튜디오갈릴레이",
+    "desc": "정교한 교통수요예측 및 시뮬레이션을 기반으로 하는 수요응답형 버스(DRT) 플랫폼을 제공합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 72.5,
+    "y": 21
+  },
+  {
+    "booth": "S38_4",
+    "name": "(주)선도소프트",
+    "desc": "GIS·공간빅데이터·디지털트윈 및 AI 기반 도시·교통 공간정보 전문기업입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 72.5,
+    "y": 24.5
+  },
+  {
+    "booth": "S39, S40",
+    "name": "씨욘드 (Seyond 레이튼)",
+    "desc": "글로벌 Top Tier 라이다(구 Innovusion) 국내 공식 공급사로 자율주행 Perception 센서를 제공합니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 23.5,
+    "y": 18
+  },
+  {
+    "booth": "S41",
+    "name": "smartmicro",
+    "desc": "독일 고성능 교통 레이더 센서 전문기업으로 전천후 교차로 및 고속도로 모니터링을 실현합니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 25.5,
+    "y": 18
+  },
+  {
+    "booth": "S42",
+    "name": "컴레이저 (주)",
+    "desc": "고정밀 레이저 기반 휴대용 과속단속 카메라 및 첨단 도로 교통 단속 장비 제조기업입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 27.5,
+    "y": 18
+  },
+  {
+    "booth": "S43",
+    "name": "(주)와이파이브",
+    "desc": "BLE, UWB, IMU 센서융합 기반 터널·실내 고정밀 협업측위 기술을 개발합니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 29.5,
+    "y": 18
+  },
+  {
+    "booth": "S44",
+    "name": "주식회사 엔유엘 (OUSTER)",
+    "desc": "미국 OUSTER 고해상도 디지털 플래시 라이다 센서 국내 공식 컨설팅 및 공급사입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 31.5,
+    "y": 18
+  },
+  {
+    "booth": "S45",
+    "name": "intobyte",
+    "desc": "싱가포르 CityMoS 도시 모빌리티 시뮬레이터 및 버스 차고지 디지털 트윈 플랫폼 기업입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 33.5,
+    "y": 18
+  },
+  {
+    "booth": "S46",
+    "name": "Miovision Technologies",
+    "desc": "20년 역사의 지능형 모빌리티 기업으로 도시 교통 혼잡 해결을 위한 스마트 교차로 툴을 제공합니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 35.5,
+    "y": 18
+  },
+  {
+    "booth": "S47",
+    "name": "(주)신성엔에스텍",
+    "desc": "공공 인프라 방재·보안·제어 시스템 및 미래형 스마트 시티 안전 솔루션 전문 기업입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 37.5,
+    "y": 18
+  },
+  {
+    "booth": "S48",
+    "name": "(주)서울로보틱스",
+    "desc": "AI 라이다 기반 3D 인지 소프트웨어 SENSR로 스마트 교차로 실시간 객체 추적을 지원합니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 39.5,
+    "y": 18
+  },
+  {
+    "booth": "S49",
+    "name": "Leishen Intelligent System (LSLiDAR)",
+    "desc": "풀시나리오 멀티라인 라이다 센서 및 자율주행 3D SLAM 무인 지게차 솔루션을 공급합니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 41.5,
+    "y": 18
+  },
+  {
+    "booth": "S50",
+    "name": "Traffic Technology International (TTi)",
+    "desc": "글로벌 고속도로·교통관리 인프라 의사결정권자 대상 세계 최고 권위 교통 전문 미디어입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 43.5,
+    "y": 18
+  },
+  {
+    "booth": "S51",
+    "name": "(주)영산글로넷",
+    "desc": "유럽·글로벌 네트워크 기반 자동차 피에조 센서 및 첨단 부품 무역·유통 기업입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 45.5,
+    "y": 18
+  },
+  {
+    "booth": "S52",
+    "name": "한국해외인프라도시개발지원공사 (KIND)",
+    "desc": "대한민국 정부 차원의 해외 투자개발사업(PPP) 진출 지원 및 해외 인프라 개발 전문 기관입니다.",
+    "zone": "Zone 3",
+    "type": "Standard",
+    "x": 47.5,
+    "y": 18
+  },
+  {
+    "booth": "S54",
+    "name": "Neuweb Pty Ltd",
+    "desc": "기존 CCTV를 99.3% 정확도 AI 실시간 교통 인텔리전스 및 신호연동 시스템으로 전환합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 58.5,
+    "y": 18
+  },
+  {
+    "booth": "S55",
+    "name": "International Road Federation (IRF)",
+    "desc": "1948년 설립된 제네바 본부 글로벌 도로연맹으로 안전하고 친환경적인 도로 시스템을 구축합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 60.5,
+    "y": 18
+  },
+  {
+    "booth": "S56",
+    "name": "(주)다리소프트",
+    "desc": "AI 도로 분석장치로 포트홀·균열 위험을 실시간 탐지하는 RiaaS 도로 정보 서비스를 제공합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 62.5,
+    "y": 18
+  },
+  {
+    "booth": "S57",
+    "name": "성풍솔레드(주)",
+    "desc": "스마트 횡단보도 LED 바닥형 보행신호등(조달청 혁신제품) 및 교통안전 시설물을 개발·시공합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 64.5,
+    "y": 18
+  },
+  {
+    "booth": "S58",
+    "name": "Zhengzhou Hengliang Tech",
+    "desc": "고속 동적 축중계(High speed WIM) 및 과적 단속, 교량 보호 교통 모니터링 시스템 기업입니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 66.5,
+    "y": 18
+  },
+  {
+    "booth": "S59",
+    "name": "엘비에스테크",
+    "desc": "보행약자를 위한 AI 보행 내비게이션 및 건물 접근성 데이터 기반 라스트마일 MaaS 기업입니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 68.5,
+    "y": 18
+  },
+  {
+    "booth": "S60",
+    "name": "에이브이지니어스",
+    "desc": "원격주행 차량 및 자율주행 로봇 인지·판단·제어 소프트웨어와 안전성 평가 서비스 기업입니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 70.5,
+    "y": 18
+  },
+  {
+    "booth": "S61",
+    "name": "주식회사 피카툰",
+    "desc": "NVIDIA Jetson 기반 엣지 AI 인텔리전트 박스로 교차로 위반 및 도로 순찰을 지원합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 72.5,
+    "y": 18
+  },
+  {
+    "booth": "S62",
+    "name": "Retro Tek",
+    "desc": "일반 주행속도에서 차선 전체 폭의 도로 표지 반사율을 비파괴 측정하는 동적 머신비전 시스템입니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 74.5,
+    "y": 18
+  },
+  {
+    "booth": "S63",
+    "name": "(주)와이테크",
+    "desc": "LTCC 고주파 세라믹 RF 부품(안테나, 필터) 전문기업으로 철도·위성·5G 무선통신에 적용됩니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 76.5,
+    "y": 18
+  },
+  {
+    "booth": "S64",
+    "name": "Intertraffic Worldwide Events",
+    "desc": "암스테르담 등 전 세계 유수 스마트 모빌리티 전시회를 주최하는 글로벌 교통 플랫폼입니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 78.5,
+    "y": 18
+  },
+  {
+    "booth": "S65",
+    "name": "7ITS新闻",
+    "desc": "중국 최대 지능형 교통(ITS) 미디어 및 싱크탱크 플랫폼으로 20만 팔로워 네트워크를 보유합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 80.5,
+    "y": 18
+  },
+  {
+    "booth": "S66",
+    "name": "Hexagon",
+    "desc": "정밀 측정·측위 및 자율주행 센싱 기술로 글로벌 모빌리티 산업 혁신을 뒷받침합니다.",
+    "zone": "Zone 4",
+    "type": "Standard",
+    "x": 82.5,
+    "y": 18
+  },
+  {
+    "booth": "S67",
+    "name": "(주)오스코",
+    "desc": "ITS, BIS, 자율주행 및 스마트시티 도시통합운영 전문 ICT 시스템통합(SI) 기업입니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 77.2,
+    "y": 29.5
+  },
+  {
+    "booth": "S68_1",
+    "name": "(주)스마트레이더시스템",
+    "desc": "고해상도 4D 이미징 레이더로 악천후 속에서도 정확한 교통 모니터링과 속도 단속을 실현합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 77.2,
+    "y": 23.5
+  },
+  {
+    "booth": "S68_2",
+    "name": "Google (Google for Cities)",
+    "desc": "인공지능과 지리공간 플랫폼을 통해 도시 교통 최적화와 스마트시티 솔루션을 제공합니다.",
+    "zone": "Zone 2",
+    "type": "Standard",
+    "x": 78.5,
+    "y": 26.5
+  }
+]
